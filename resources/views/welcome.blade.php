@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5 - DariausPc</div>
+                <div class="title">Laravel 5 - LukoPc</div>
             </div>
         </div>
     </body>
