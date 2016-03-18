@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5 - LukoPc</div>
+                <div class="title">Laravel 5 - LinoPc</div>
             </div>
         </div>
     </body>
