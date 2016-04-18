@@ -11,9 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [
+    'as' => '/',
+    'uses' => 'PagesController@getIndex'
+]);
+
+Route::get('about', [
+    'as' => 'about',
+    'uses' => 'PagesController@getAbout'
+]);
+
+Route::get('help',function () {
+    return view('pages.help');
 });
+
+Route::get('contact', [
+    'as' => 'contact',
+    'uses' => 'PagesController@getContact'
+]);
+
+Route::get('first/second',function () {
+    return view('pages.test');
+});
+/*
 Route::resource('home', 'Home');
 Route::resource('home/{name}', 'Home');
 
@@ -29,7 +49,7 @@ Route::resource('home/{name}', 'Home');
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
+/*
 Route::group(['middleware' => ['web']], function () {
     //
-});
+});*/
