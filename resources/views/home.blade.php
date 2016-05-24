@@ -19,7 +19,7 @@
             <span class="info">
                 Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
                 Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
-                Užimama vieta: <strong><font color="green">#1</font></h3></strong>
+                Užimama vieta: <strong><font color="green">#1</font></strong>
             </span>
         </div>
         <ul class="icons">
@@ -48,8 +48,8 @@
             </div>
             <div>
                 <a href="images/fulls/03.jpg">
-                    <img src="images/thumbs/03.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
+                    <img src="images/thumbs/tasks3.png" alt="" />
+                    <h3>Vykdyti užduotis</h3>
                 </a>
                 <a href="images/fulls/04.jpg">
                     <img src="images/thumbs/04.jpg" alt="" />
