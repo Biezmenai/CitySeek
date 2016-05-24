@@ -10,7 +10,7 @@
 </head>
 <body>
 <section id="main">
-    <h1>Turnyrinė lentelė</h1>
+    <h1 align="center"> Turnyrinė lentelė</h1>
     <table>
         <tr>
             <td>ID</td>
@@ -31,6 +31,12 @@
 </body>
 </html>
 
+<h2 align="center">
+    <a  href="/home">
+        <img  src="images/thumbs/home3.png" alt="" />
+        <h3>Grįžti į pradinį puslapį</h3>
+    </a>
+</h2>
 <!-- Footer -->
 <footer id="footer">
     <p>&copy; CitySeek Kaunas </a>.</p>
