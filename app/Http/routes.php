@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,9 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
+Route::post('ideti','UploadController@ideti');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('home', array('as' => 'home', 'uses' => function(){
   return view('home');
+
 }));
 
-Route::post('upload', 'UploadController@upload');
