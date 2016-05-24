@@ -19,7 +19,7 @@
             <span class="info">
                 Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
                 Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
-                    Current user: {{ $rank }}
+                    Užimama vieta: <strong><font color="green">#{{ $rank }}</font></strong>
             </span>
         </div>
         <ul class="icons">
@@ -48,7 +48,7 @@
             </div>
             <div>
                 <a href="images/fulls/03.jpg">
-                    <img src="images/thumbs/tasks3.png" alt="" />
+                    <img src="images/thumbs/tasks.png" alt="" />
                     <h3>Vykdyti užduotis</h3>
                 </a>
                 <a href="images/fulls/04.jpg">
