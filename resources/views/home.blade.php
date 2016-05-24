@@ -37,7 +37,7 @@
         <!-- Thumbnails -->
         <section class="thumbnails">
             <div>
-                <a href="images/fulls/01.jpg">
+                <a href="https://twitter.com/CitySeekKaunas" target="_blank">
                     <img src="images/thumbs/01.jpg" alt="" />
                     <h3>Lorem ipsum dolor sit amet</h3>
                 </a>
