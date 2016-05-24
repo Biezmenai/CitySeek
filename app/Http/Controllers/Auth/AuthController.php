@@ -94,6 +94,7 @@ class AuthController extends Controller
 
         Auth::login($authUser, true);
 
+
         return redirect()->route('home');
 
     }
@@ -116,7 +117,8 @@ class AuthController extends Controller
             'name' => $facebookUser->name,
             'email' => $facebookUser->email,
             'facebook_id' => $facebookUser->id,
-            'avatar' => $facebookUser->avatar
+            'avatar' => $facebookUser->avatar,
+            'points' => '0'
         ]);
     }
 
