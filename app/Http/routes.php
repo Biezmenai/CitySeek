@@ -10,14 +10,12 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('home', array('as' => 'home', 'uses' => function(){
   return view('home');
 }));
