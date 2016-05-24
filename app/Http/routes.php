@@ -67,6 +67,7 @@ Route::post('uzduotys', array(
 ));
 
 Route::get('home', array('as' => 'home', 'uses' => 'ToplistController@watchTops'));
+Route::get('kontaktai', array('as' => 'kontaktai', 'uses' => 'ToplistController@watchTopsContact'));
 
 Route::get('/apie-mus', function(){
 

@@ -18,6 +18,16 @@ class ToplistController extends Controller
         return view('/home', compact('rank'));
     }
 
+    public function watchTopsContact()
+    {
+
+        $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(5);
+
+        $me = Auth::user();
+        $rank = User::where('points', '>', $me->points)->count() + 1;
+        return view('/kontaktai', compact('rank'));
+    }
+
     /*
         1 funkcija  suranda vartotoja pagal ID ir grazina ji
         2 funkcija tam vartotojui sukelia

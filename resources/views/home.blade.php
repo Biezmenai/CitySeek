@@ -33,7 +33,7 @@
 
     <!-- Main -->
     <section id="main">
-
+        <h1>Navigacija</h1>
         <!-- Thumbnails -->
         <section class="thumbnails">
             <div>
