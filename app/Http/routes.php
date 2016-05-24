@@ -36,6 +36,10 @@ Route::get('apie-mus', array('as'=>'apie-mus', 'uses'=> function(){
     return view('apie-mus');
 }));
 
+//Route kontaktai puslapiui
+Route::get('kontaktai', array('as'=>'kontaktai', 'uses'=> function(){
+    return view('kontaktai');
+}));
 
 
 
