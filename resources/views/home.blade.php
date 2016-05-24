@@ -17,9 +17,9 @@
     <header id="header">
         <div class="userinfo"><span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
             <span class="info">
-                Your name is  {{ Auth::user()->name }}<br>
-                Your email is {{ Auth::user()->email }}<br>
-                Jusu taskai: {{ Auth::user()->points }}<br>
+                Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
+                Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
+                Užimama vieta: <strong><font color="green">#1</font></h3></strong>
             </span>
         </div>
         <ul class="icons">
@@ -71,12 +71,6 @@
                 </a>
             </div>
         </section>
-        <div>
-            <h4>Your name is  {{ Auth::user()->name }} </h4>
-            <h4>Your email is {{ Auth::user()->email }} </h4>
-            <img src="{{ Auth::user()->avatar }}" height="100" width="100" /><br>
-            <a class="btn btn-info" href="auth/logout" role="button">Logout</a>
-        </div>
     </section>
 
     <!-- Footer -->
