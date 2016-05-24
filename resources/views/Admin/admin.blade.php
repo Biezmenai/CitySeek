@@ -76,6 +76,13 @@
     </section>
 </section>
 
+<h2 align="center">
+    <a  href="/home">
+        <img  src="images/thumbs/home3.png" alt="" />
+        <h3>Grįžti į pradinį puslapį</h3>
+    </a>
+</h2>
+
 <!-- Footer -->
 <footer id="footer">
     <p>&copy;  <a href="Admin"></a> <a href=""></a>.</p>

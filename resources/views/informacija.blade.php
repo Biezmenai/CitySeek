@@ -23,6 +23,12 @@
     Likes renginio laikas: <b></b>
 
 </div>
+<h2 align="center">
+<a  href="/home">
+    <img  src="images/thumbs/home3.png" alt="" />
+    <h3>Grįžti į pradinį puslapį</h3>
+</a>
+</h2>
 </body>
 </html>
 

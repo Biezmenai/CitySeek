@@ -1,4 +1,4 @@
-<form action=""
+
 <!DOCTYPE html>
 
 
@@ -65,7 +65,10 @@
 
 
         </div>
-
+        <a href="/home">
+            <img src="images/thumbs/home3.png" alt="" />
+            <h3>Grįžti į pradinį puslapį</h3>
+        </a>
 
 
 
