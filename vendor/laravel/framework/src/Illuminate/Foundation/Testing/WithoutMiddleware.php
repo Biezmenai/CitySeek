@@ -7,7 +7,7 @@ use Exception;
 trait WithoutMiddleware
 {
     /**
-     * @throws \Exception
+     * @before
      */
     public function disableMiddlewareForAllTests()
     {

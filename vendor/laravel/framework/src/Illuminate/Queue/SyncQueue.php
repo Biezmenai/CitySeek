@@ -17,8 +17,7 @@ class SyncQueue extends Queue implements QueueContract
      * @param  mixed   $data
      * @param  string  $queue
      * @return mixed
-     *
-     * @throws \Exception|\Throwable
+     * @throws \Throwable
      */
     public function push($job, $data = '', $queue = null)
     {
@@ -101,7 +100,7 @@ class SyncQueue extends Queue implements QueueContract
         $data = json_decode($job->getRawBody(), true);
 
         if ($this->container->bound('events')) {
-            $this->container['events']->fire(new Events\JobProcessed('sync', $job, $data));
+            $this->container['events']->fire('illuminate.queue.after', ['sync', $job, $data]);
         }
     }
 
@@ -129,7 +128,7 @@ class SyncQueue extends Queue implements QueueContract
         $data = json_decode($job->getRawBody(), true);
 
         if ($this->container->bound('events')) {
-            $this->container['events']->fire(new Events\JobFailed('sync', $job, $data));
+            $this->container['events']->fire('illuminate.queue.failed', ['sync', $job, $data]);
         }
     }
 }

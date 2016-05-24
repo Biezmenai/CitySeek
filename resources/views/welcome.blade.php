@@ -3,7 +3,8 @@
     <head>
         <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
         <style>
             html, body {
@@ -38,7 +39,9 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5 - KristupoPc</div>
+                <div class="title">Laravel 5</div>
+
+                <a class="btn btn-info" href="auth/facebook" role="button">Login with Facebook</a>
             </div>
         </div>
     </body>

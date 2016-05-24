@@ -65,8 +65,6 @@ class MySqlGrammar extends Grammar
 
         if (isset($blueprint->engine)) {
             $sql .= ' engine = '.$blueprint->engine;
-        } elseif (! is_null($engine = $connection->getConfig('engine'))) {
-            $sql .= ' engine = '.$engine;
         }
 
         return $sql;
@@ -453,7 +451,7 @@ class MySqlGrammar extends Grammar
      */
     protected function typeJson(Fluent $column)
     {
-        return 'json';
+        return 'text';
     }
 
     /**
@@ -464,7 +462,7 @@ class MySqlGrammar extends Grammar
      */
     protected function typeJsonb(Fluent $column)
     {
-        return 'json';
+        return 'text';
     }
 
     /**
@@ -534,6 +532,10 @@ class MySqlGrammar extends Grammar
             return 'timestamp default CURRENT_TIMESTAMP';
         }
 
+        if (! $column->nullable && $column->default === null) {
+            return 'timestamp default 0';
+        }
+
         return 'timestamp';
     }
 
@@ -547,6 +549,10 @@ class MySqlGrammar extends Grammar
     {
         if ($column->useCurrent) {
             return 'timestamp default CURRENT_TIMESTAMP';
+        }
+
+        if (! $column->nullable && $column->default === null) {
+            return 'timestamp default 0';
         }
 
         return 'timestamp';

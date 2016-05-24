@@ -246,7 +246,7 @@ class PasswordBroker implements PasswordBrokerContract
      *
      * @return \Illuminate\Auth\Passwords\TokenRepositoryInterface
      */
-    public function getRepository()
+    protected function getRepository()
     {
         return $this->tokens;
     }

@@ -89,8 +89,6 @@ class FormRequest extends Request implements ValidatesWhenResolved
      *
      * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return mixed
-     *
-     * @throws \Illuminate\Http\Exception\HttpResponseException
      */
     protected function failedValidation(Validator $validator)
     {
@@ -117,8 +115,6 @@ class FormRequest extends Request implements ValidatesWhenResolved
      * Handle a failed authorization attempt.
      *
      * @return mixed
-     *
-     * @throws \\Illuminate\Http\Exception\HttpResponseExceptio
      */
     protected function failedAuthorization()
     {
