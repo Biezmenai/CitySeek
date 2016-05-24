@@ -23,14 +23,20 @@ Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback
 Route::get('home', array('as' => 'home', 'uses' => function(){
     return view('home');
 }));
-
+//Route uzduociu puslapiui
 Route::get('uzduotys', array('as'=>'uzduotys', 'uses'=> function(){
     return view('uzduotys');
 }));
-
+//Route infromacijos puslapiui
 Route::get('informacija', array('as'=>'informacija', 'uses'=> function(){
     return view('informacija');
 }));
+//Route apieMus puslapiui
+Route::get('apie-mus', array('as'=>'apie-mus', 'uses'=> function(){
+    return view('apie-mus');
+}));
+
+
 
 
 
