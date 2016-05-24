@@ -20,6 +20,7 @@
                 Your name is  {{ Auth::user()->name }}<br>
                 Your email is {{ Auth::user()->email }}<br>
                 Jusu taskai: {{ Auth::user()->points }}<br>
+                <a href="/listing" class="icon style2 fa-twitter"><span class="label">CBB</span></a>
             </span>
         </div>
         <ul class="icons">

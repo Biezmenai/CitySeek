@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -21,3 +23,10 @@ Route::get('home', array('as' => 'home', 'uses' => function(){
 }));
 
 Route::post('upload', 'UploadController@upload');
+
+Route::get('/listing', function(){
+
+    $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(5);
+
+    return view('/listing', compact('users'));
+});

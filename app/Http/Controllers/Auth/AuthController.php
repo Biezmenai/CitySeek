@@ -122,4 +122,14 @@ class AuthController extends Controller
         ]);
     }
 
+    private function seekPoints()
+    {
+        $customers = User::whereHas('points', function($query)
+        {
+            $query->where('name', 'points');
+        })->get();
+
+        return $customers;
+    }
+
 }
