@@ -47,7 +47,7 @@
                 </a>
             </div>
             <div>
-                <a href="images/fulls/03.jpg">
+                <a href="/uzduotys">
                     <img src="images/thumbs/tasks.png" alt="" />
                     <h3>Vykdyti užduotis</h3>
                 </a>
