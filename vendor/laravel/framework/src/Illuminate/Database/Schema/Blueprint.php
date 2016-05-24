@@ -49,7 +49,7 @@ class Blueprint
 
     /**
      * Whether to make the table temporary.
-     *
+     *increments
      * @var bool
      */
     public $temporary = false;
