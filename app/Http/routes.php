@@ -39,3 +39,8 @@ Route::get('/home', function(){
     $rank = User::where('points', '>', $me->points)->count() + 1;
     return view('/home', compact('rank'));
 });
+
+Route::group(array('namespace'=>'Admin'), function()
+{
+    Route::get('/admin', array('as' => 'admin', 'uses' => 'AdminController@index'));
+});
