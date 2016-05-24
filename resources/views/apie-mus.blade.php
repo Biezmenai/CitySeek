@@ -73,7 +73,7 @@
 </section>
 
 
-<!-- Footer   -->
+<!--  Footer   -->
 <footer id="footer">
     <p>&copy; CitySeek </a>.</p>
 </footer>
