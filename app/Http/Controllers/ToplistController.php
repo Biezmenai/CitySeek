@@ -17,4 +17,20 @@ class ToplistController extends Controller
         $rank = User::where('points', '>', $me->points)->count() + 1;
         return view('/home', compact('rank'));
     }
+
+    /*
+        1 funkcija  suranda vartotoja pagal ID ir grazina ji
+        2 funkcija tam vartotojui sukelia
+    */
+
+    public function S1()
+    {
+
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $user->points = $user->points+10;
+        $user->save();
+        return $user->points;
+
+    }
 }

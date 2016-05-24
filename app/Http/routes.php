@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::post('ideti', 'UploadController@ideti');
+Route::get('padidinti', 'ToplistController@S1');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('home', array('as' => 'home', 'uses' => function(){
     return view('home');
