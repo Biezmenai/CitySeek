@@ -70,9 +70,10 @@
         </section>
     </section>
 
+
     <!-- Footer -->
     <footer id="footer">
-        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+        <p>&copy; CitySeek </a>.</p>
     </footer>
 
 </div>

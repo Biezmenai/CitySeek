@@ -18,3 +18,8 @@ name = {{Input::get('name')}}
 
 </body>
 </html>
+
+<!-- Footer -->
+<footer id="footer">
+    <p>&copy; CitySeek </a>.</p>
+</footer>

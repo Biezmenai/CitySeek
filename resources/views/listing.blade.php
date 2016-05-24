@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Visualize by TEMPLATED</title>
+    <title>CitySeek</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -94,8 +94,9 @@
     </section>
 
     <!-- Footer -->
+    <!-- Footer -->
     <footer id="footer">
-        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+        <p>&copy; CitySeek </a>.</p>
     </footer>
 
 </div>
