@@ -17,10 +17,10 @@
     <header id="header">
         <span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
         <ul class="icons">
-            <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+            <li><a href="https://twitter.com/CitySeekKaunas" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="https://www.facebook.com/cityseekkaunas/" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="https://www.instagram.com/cityseekkaunas/?hl=en" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="mailto:cityseekinfo@gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
         </ul>
         Jusu taskai: {{ Auth::user()->points }}
     </header>
