@@ -20,10 +20,6 @@
                 Your name is  {{ Auth::user()->name }}<br>
                 Your email is {{ Auth::user()->email }}<br>
                 Jusu taskai: {{ Auth::user()->points }}<br>
-                
-                @foreach( $users as $key => $h)
-                       {{$key+1}} {{ $h->name }} {{ $h->points }} <br>
-                @endforeach
             </span>
         </div>
         <ul class="icons">
@@ -37,6 +33,20 @@
 
     <!-- Main -->
     <section id="main">
+        <h1>Turnyrinė lentelė</h1>
+        <table>
+            <tr>
+                <td>Vieta</td>
+                <td>Vardas</td>
+                <td>Taskai</td>
+            </tr>
+            @foreach( $users as $key => $h)
+                <tr>
+                    <td>{{$key+1}}</td> <td>{{ $h->name }}</td> <td>{{ $h->points }}</td>
+                </tr>
+            @endforeach
+
+        </table>
 
         <!-- Thumbnails -->
         <section class="thumbnails">
