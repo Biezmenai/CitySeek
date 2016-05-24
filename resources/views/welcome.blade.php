@@ -7,10 +7,9 @@
 </head>
 <body>
 
-
-
 <header id="header">
-    <a class="btn btn-info" href="auth/facebook" role="button">Login with Facebook</a>
+    <h1 align="center">CitySeek Kaunas</h1>
+    <div  style="padding: 1px 5px 30px 5px;"><a href="auth/facebook"><img src="images/thumbs/login-facebook.png" width="300px"></a></div>
 
 
 
