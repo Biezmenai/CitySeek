@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar');
             $table->integer('points');
             $table->rememberToken();
-            $table->timestamps();
+             $table->timestamps();
         });
     }
 
