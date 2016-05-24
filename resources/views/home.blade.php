@@ -46,13 +46,13 @@
         <!-- Thumbnails -->
         <section class="thumbnails">
             <div>
-                <a href="/listing">
-                    <img src="images/thumbs/listing.png" alt="" />
-                    <h3>Turnyrinė lentelė</h3>
+                <a href="/home">
+                    <img src="images/thumbs/home3.png" alt="" />
+                    <h3>Grįžti į pradinį puslapį</h3>
                 </a>
-                <a href="images/fulls/02.jpg">
-                    <img src="images/thumbs/tasks.png" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
+                <a href="/kontaktai">
+                    <img src="images/thumbs/contact_us.png" alt="" />
+                    <h3>Susisiekite su mumis</h3>
                 </a>
             </div>
             <div>
@@ -60,23 +60,15 @@
                     <img src="images/thumbs/tasks.png" alt="" />
                     <h3>Vykdyti užduotis</h3>
                 </a>
-                <a href="images/fulls/04.jpg">
-                    <img src="images/thumbs/04.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-                <a href="images/fulls/05.jpg">
-                    <img src="images/thumbs/05.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
+                <a href="/apie-mus">
+                    <img src="images/thumbs/about_us.png" alt="" />
+                    <h3>Apie mus</h3>
                 </a>
             </div>
             <div>
-                <a href="images/fulls/06.jpg">
-                    <img src="images/thumbs/06.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-                <a href="images/fulls/07.jpg">
-                    <img src="images/thumbs/07.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
+                <a href="/listing">
+                    <img src="images/thumbs/listing.png" alt="" />
+                    <h3>Turnyrinė lentelė</h3>
                 </a>
             </div>
         </section>

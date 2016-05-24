@@ -59,8 +59,8 @@
                 </a>
             </div>
             <div>
-                <a href="images/fulls/06.jpg">
-                    <img src="images/thumbs/06.jpg" alt="" />
+                <a href="/home">
+                    <img src="images/thumbs/home3.png" alt="" />
                     <h3>Lorem ipsum dolor sit amet</h3>
                 </a>
                 <a href="images/fulls/07.jpg">
