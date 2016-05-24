@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-
-
 <html>
 <head>
-    <title>Visualize by TEMPLATED</title>
+    <title>CitySeek Kaunas</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 
-<a class="btn btn-info" href="padidinti" role="button">zS</a>
-
-
 <!-- Wrapper -->
 <div id="wrapper">
 
+    <a class="btn btn-info" href="padidinti" role="button">zS</a>
     <!-- Header -->
     <header id="header">
+        <h1 align="center">CitySeek Kaunas</h1>
         <div class="userinfo"><span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
             <span class="info">
                 Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
@@ -60,14 +57,15 @@
                 </a>
             </div>
             <div>
+                <a href="/informacija">
+                    <img src="images/thumbs/event.png" alt="" />
+                    <h3>Informacija apie renginį</h3>
+                </a>
                 <a href="/listing">
                     <img src="images/thumbs/listing.png" alt="" />
                     <h3>Turnyrinė lentelė</h3>
                 </a>
-                <a href="/informacija">
-                    <img src="images/thumbs/listing.png" alt="" />
-                    <h3>Informacija apie rengini</h3>
-                </a>
+
             </div>
         </section>
     </section>
