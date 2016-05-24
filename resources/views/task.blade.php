@@ -49,14 +49,10 @@
 
 
 
-            <form action="{{URL::route('uzduotys')}}" method="post"></form>
-                    <input type="text" name="name" id="">
-                    <br>
-
-                <button type="submit">Submit</button>
-            </form>
-
-
+            inputs
+            <br>
+            name = {{Input::get('name')}}
+            <br>
 
 
 
@@ -88,3 +84,5 @@
 <script src="assets/js/jquery.poptrox.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/main.js"></script>
+
+
