@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('facebook_id')->unique();
             $table->string('avatar');
             $table->integer('points');
+            $table->integer('accesslevel');
             $table->rememberToken();
              $table->timestamps();
         });

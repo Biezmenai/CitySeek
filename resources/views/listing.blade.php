@@ -20,6 +20,7 @@
                 Your name is  {{ Auth::user()->name }}<br>
                 Your email is {{ Auth::user()->email }}<br>
                 Jusu taskai: {{ Auth::user()->points }}<br>
+                
                 @foreach( $users as $key => $h)
                        {{$key+1}} {{ $h->name }} {{ $h->points }} <br>
                 @endforeach

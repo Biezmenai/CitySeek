@@ -94,7 +94,6 @@ class AuthController extends Controller
 
         Auth::login($authUser, true);
 
-
         return redirect()->route('home');
 
     }
@@ -122,14 +121,11 @@ class AuthController extends Controller
         ]);
     }
 
-    private function seekPoints()
+    public function getLogout()
     {
-        $customers = User::whereHas('points', function($query)
-        {
-            $query->where('name', 'points');
-        })->get();
-
-        return $customers;
+        Auth::logout();
+       // Session::flush();
+        return redirect('/');
     }
 
 }
