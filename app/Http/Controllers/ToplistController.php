@@ -28,6 +28,17 @@ class ToplistController extends Controller
 
         $id = Auth::user()->id;
         $user = User::find($id);
+        $user->points = $user->points+120;
+        $user->save();
+        return $user->points;
+
+    }
+
+    public function S2($data)
+    {
+
+        $id = $data->id;
+        $user = User::find($id);
         $user->points = $user->points+10;
         $user->save();
         return $user->points;

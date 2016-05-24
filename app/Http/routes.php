@@ -62,3 +62,5 @@ Route::post('uzduotys', array(
         return Input::All();
     }
 ));
+
+Route::get('home', array('as' => 'home', 'uses' => 'ToplistController@watchTops'));
