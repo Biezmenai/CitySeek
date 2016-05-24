@@ -17,10 +17,9 @@
     <header id="header">
         <div class="userinfo"><span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
             <span class="info">
-                Your name is  {{ Auth::user()->name }}<br>
-                Your email is {{ Auth::user()->email }}<br>
-                Jusu taskai: {{ Auth::user()->points }}<br>
-                <a href="/listing" class="icon style2 fa-twitter"><span class="label">CBB</span></a>
+                Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
+                Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
+                Užimama vieta: <strong><font color="green">#1</font></strong>
             </span>
         </div>
         <ul class="icons">
@@ -38,19 +37,19 @@
         <!-- Thumbnails -->
         <section class="thumbnails">
             <div>
-                <a href="images/fulls/01.jpg">
-                    <img src="images/thumbs/01.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
+                <a href="https://twitter.com/CitySeekKaunas" target="_blank">
+                    <img src="images/thumbs/listing.png" alt="" />
+                    <h3>Turnyrinė lentelė</h3>
                 </a>
                 <a href="images/fulls/02.jpg">
-                    <img src="images/thumbs/02.jpg" alt="" />
+                    <img src="images/thumbs/tasks.png" alt="" />
                     <h3>Lorem ipsum dolor sit amet</h3>
                 </a>
             </div>
             <div>
                 <a href="images/fulls/03.jpg">
-                    <img src="images/thumbs/03.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
+                    <img src="images/thumbs/tasks3.png" alt="" />
+                    <h3>Vykdyti užduotis</h3>
                 </a>
                 <a href="images/fulls/04.jpg">
                     <img src="images/thumbs/04.jpg" alt="" />
@@ -72,12 +71,6 @@
                 </a>
             </div>
         </section>
-        <div>
-            <h4>Your name is  {{ Auth::user()->name }} </h4>
-            <h4>Your email is {{ Auth::user()->email }} </h4>
-            <img src="{{ Auth::user()->avatar }}" height="100" width="100" /><br>
-            <a class="btn btn-info" href="auth/logout" role="button">Logout</a>
-        </div>
     </section>
 
     <!-- Footer -->
