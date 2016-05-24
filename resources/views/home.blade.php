@@ -22,6 +22,7 @@
             <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
             <li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
         </ul>
+        Jusu taskai: {{ Auth::user()->points }}
     </header>
 
     <!-- Main -->
