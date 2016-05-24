@@ -17,7 +17,6 @@
             <span class="info">
                 Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
                 Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
-                Užimama vieta: <strong><font color="green">#{{ $rank }}</font></strong><br>
             </span>
             </div>
             <ul class="icons">
