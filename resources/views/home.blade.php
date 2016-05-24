@@ -44,7 +44,8 @@
                 <div>
                    <h4>Your name is  {{ Auth::user()->name }} </h4>
                    <h4>Your email is {{ Auth::user()->email }} </h4>
-                   <img src="{{ Auth::user()->avatar }}" height="200" width="200" />
+                   <img src="{{ Auth::user()->avatar }}" height="100" width="100" /><br>
+                    <a class="btn btn-info" href="auth/logout" role="button">Logout</a>
                 </div>
             </div>
         </div>
