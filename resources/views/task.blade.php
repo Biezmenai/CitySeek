@@ -72,12 +72,12 @@
     </section>
 </section>
 
+
 <!-- Footer -->
 <footer id="footer">
-    <p>&copy;  <a href="Admin"></a> <a href=""></a>.</p>
+    <p>&copy; CitySeek </a>.</p>
 </footer>
 
-</div>
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>

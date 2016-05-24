@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Visualize by TEMPLATED</title>
+    <title>CitySeek</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -50,52 +50,17 @@
 
         <!-- Thumbnails -->
         <section class="thumbnails">
-            <div>
-                <a href="images/fulls/01.jpg">
-                    <img src="images/thumbs/01.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-                <a href="images/fulls/02.jpg">
-                    <img src="images/thumbs/02.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-            </div>
-            <div>
-                <a href="images/fulls/03.jpg">
-                    <img src="images/thumbs/03.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-                <a href="images/fulls/04.jpg">
-                    <img src="images/thumbs/04.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-                <a href="images/fulls/05.jpg">
-                    <img src="images/thumbs/05.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-            </div>
-            <div>
-                <a href="images/fulls/06.jpg">
-                    <img src="images/thumbs/06.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-                <a href="images/fulls/07.jpg">
-                    <img src="images/thumbs/07.jpg" alt="" />
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                </a>
-            </div>
+
         </section>
         <div>
-            <h4>Your name is  {{ Auth::user()->name }} </h4>
-            <h4>Your email is {{ Auth::user()->email }} </h4>
-            <img src="{{ Auth::user()->avatar }}" height="100" width="100" /><br>
             <a class="btn btn-info" href="auth/logout" role="button">Logout</a>
         </div>
     </section>
 
     <!-- Footer -->
+    <!-- Footer -->
     <footer id="footer">
-        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+        <p>&copy; CitySeek </a>.</p>
     </footer>
 
 </div>
