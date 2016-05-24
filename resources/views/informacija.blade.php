@@ -16,7 +16,7 @@
     <h1>Informacija apie renginį</h1><br />
     Renginio tipas:   <b><p1>Ilgalaikis</p1></b>
     <br />
-    Renginys ivyks:   <b>2016:06:01</b>
+    Renginys įvyks:   <b>2016:06:01</b>
     <br />
     Renginys baigsis: <b>2016:07:01</b>
     <br />

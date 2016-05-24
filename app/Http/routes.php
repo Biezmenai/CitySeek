@@ -32,9 +32,7 @@ Route::get('informacija', array('as'=>'informacija', 'uses'=> function(){
     return view('informacija');
 }));
 //Route apieMus puslapiui
-Route::get('apie-mus', array('as'=>'apie-mus', 'uses'=> function(){
-    return view('apie-mus');
-}));
+
 
 //Route kontaktai puslapiui
 Route::get('kontaktai', array('as'=>'kontaktai', 'uses'=> function(){
@@ -64,3 +62,14 @@ Route::post('uzduotys', array(
 ));
 
 Route::get('home', array('as' => 'home', 'uses' => 'ToplistController@watchTops'));
+
+Route::get('/apie-mus', function(){
+
+    $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(5);
+
+    return view('/apie-mus', compact('users'));
+});
+/*
+Route::get('apie-mus', array('as'=>'apie-mus', 'uses'=> function(){
+    return view('apie-mus');
+}));*/
