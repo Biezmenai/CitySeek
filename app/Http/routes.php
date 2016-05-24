@@ -28,6 +28,10 @@ Route::get('uzduotys', array('as'=>'uzduotys', 'uses'=> function(){
     return view('uzduotys');
 }));
 
+Route::get('informacija', array('as'=>'informacija', 'uses'=> function(){
+    return view('informacija');
+}));
+
 
 
 

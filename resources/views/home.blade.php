@@ -64,6 +64,10 @@
                     <img src="images/thumbs/listing.png" alt="" />
                     <h3>Turnyrinė lentelė</h3>
                 </a>
+                <a href="/informacija">
+                    <img src="images/thumbs/listing.png" alt="" />
+                    <h3>Informacija apie rengini</h3>
+                </a>
             </div>
         </section>
     </section>
