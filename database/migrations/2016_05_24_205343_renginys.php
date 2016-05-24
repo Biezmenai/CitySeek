@@ -12,7 +12,15 @@ class Renginys extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('renginys', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('aprasymas');
+            $table->string('pradzios_data');
+            $table->string('pabaigos_data');
+            $table->string('likes_laikas');
+
+        });
     }
 
     /**
