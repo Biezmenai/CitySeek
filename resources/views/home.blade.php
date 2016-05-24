@@ -10,6 +10,15 @@
 </head>
 <body>
 
+<form action="{{ URL::to('ideti') }}" method="post" enctype="multipart/form-data">
+    <label>Select image to upload </label>
+    <input type="file" name="file" id="file">
+    <input type="submit" value="Upload" name="submit">
+    <input type="hidden" value="{{ csrf_token() }}" name="_token">
+    <input type="hidden" value="uploads/{{Auth::user()->facebook_id}}" name="foldername" id="foldername">
+</form>
+
+
 <!-- Wrapper -->
 <div id="wrapper">
 
