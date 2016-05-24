@@ -37,15 +37,6 @@ Route::get('/listing', function(){
     return view('/listing', compact('users'));
 });
 
-Route::get('/home', function(){
-
-    $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(5);
-
-    $me   = Auth::user();
-    $rank = User::where('points', '>', $me->points)->count() + 1;
-    return view('/home', compact('rank'));
-});
-
 Route::group(array('namespace'=>'Admin'), function()
 {
     Route::get('/admin', array('as' => 'admin', 'uses' => 'AdminController@index'));
