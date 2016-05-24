@@ -24,7 +24,6 @@ Route::get('home', array('as' => 'home', 'uses' => function(){
 }));
 
 
-
 Route::get('/listing', function(){
 
     $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(5);

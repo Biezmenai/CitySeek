@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
+
 <form action="{{ URL::to('ideti') }}" method="post" enctype="multipart/form-data">
     <label>Select image to upload </label>
     <input type="file" name="file" id="file">
@@ -26,12 +27,12 @@
     <!-- Header -->
 
 
-        <ul class="icons">
-            <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
-        </ul>
+    <ul class="icons">
+        <li><a href="https://twitter.com/CitySeekKaunas" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="https://www.facebook.com/cityseekkaunas/" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+        <li><a href="https://www.instagram.com/cityseekkaunas/?hl=en" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="mailto:cityseekinfo@gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+    </ul>
     </header>
 
 
