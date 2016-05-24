@@ -46,7 +46,7 @@
         <!-- Thumbnails -->
         <section class="thumbnails">
             <div>
-                <a href="https://twitter.com/CitySeekKaunas" target="_blank">
+                <a href="/listing">
                     <img src="images/thumbs/listing.png" alt="" />
                     <h3>Turnyrinė lentelė</h3>
                 </a>
