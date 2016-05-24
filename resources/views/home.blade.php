@@ -20,6 +20,15 @@
                 Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
                  Užimama vieta: <strong><font color="green">#{{ $rank }}</font></strong><br>
             </span>
+            <form action="{{ URL::to('ideti') }}" method="post" enctype="multipart/form-data">
+                    <label>Select image to upload </label>
+                    <input type="file" name="file" id="file">
+                    <input type="submit" value="Upload" name="submit">
+                    <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                    <input type="hidden" value="uploads/{{Auth::user()->facebook_id}}" name="foldername" id="foldername">
+                    <input type="hidden" value="{{Auth::user()->facebook_id}}" name="owner" id="owner">
+                    <input type="hidden" value="/uploads/{{Auth::user()->facebook_id}}" name="link" id="link">
+                </form>
         </div>
         <ul class="icons">
             <li><a href="https://twitter.com/CitySeekKaunas" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
