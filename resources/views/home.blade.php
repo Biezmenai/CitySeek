@@ -15,13 +15,20 @@
 
     <!-- Header -->
     <header id="header">
-        <span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
+        <div class="userinfo"><span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
+            <span class="info">
+                Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
+                Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
+                Užimama vieta: <strong><font color="green">#1</font></h3></strong>
+            </span>
+        </div>
         <ul class="icons">
-            <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+            <li><a href="https://twitter.com/CitySeekKaunas" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="https://www.facebook.com/cityseekkaunas/" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="https://www.instagram.com/cityseekkaunas/?hl=en" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="mailto:cityseekinfo@gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
         </ul>
+
     </header>
 
     <!-- Main -->
@@ -30,7 +37,7 @@
         <!-- Thumbnails -->
         <section class="thumbnails">
             <div>
-                <a href="images/fulls/01.jpg">
+                <a href="https://twitter.com/CitySeekKaunas" target="_blank">
                     <img src="images/thumbs/01.jpg" alt="" />
                     <h3>Lorem ipsum dolor sit amet</h3>
                 </a>
@@ -64,12 +71,6 @@
                 </a>
             </div>
         </section>
-        <div>
-            <h4>Your name is  {{ Auth::user()->name }} </h4>
-            <h4>Your email is {{ Auth::user()->email }} </h4>
-            <img src="{{ Auth::user()->avatar }}" height="100" width="100" /><br>
-            <a class="btn btn-info" href="auth/logout" role="button">Logout</a>
-        </div>
     </section>
 
     <!-- Footer -->
