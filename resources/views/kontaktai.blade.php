@@ -18,8 +18,7 @@
         <div class="userinfo"><span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
             <span class="info">
                 Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
-                Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
-                Užimama vieta: <strong><font color="green">#{{ $rank }}</font></strong><br>
+                Jūsų taškai: <strong>{{ Auth::user()->points }}</strong><br>
             </span>
         </div>
     <ul class="icons">

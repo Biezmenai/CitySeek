@@ -15,11 +15,11 @@
 
     <!-- Header -->
     <header id="header">
+        <h1 align="center">CitySeek Kaunas</h1>
         <div class="userinfo"><span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
             <span class="info">
-                Your name is  {{ Auth::user()->name }}<br>
-                Your email is {{ Auth::user()->email }}<br>
-                Jusu taskai: {{ Auth::user()->points }}<br>
+                Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
+                Jūsų taškai: <strong>{{ Auth::user()->points }}</strong><br>
             </span>
         </div>
         <ul class="icons">
@@ -38,36 +38,63 @@
             <tr>
                 <td>Vieta</td>
                 <td>Vardas</td>
-                <td>Taskai</td>
+                <td>Taškai</td>
             </tr>
             @foreach( $users as $key => $h)
                 <tr>
                     <td>{{$key+1}}</td> <td>{{ $h->name }}</td> <td>{{ $h->points }}</td>
                 </tr>
             @endforeach
-
         </table>
 
+        <br></nr><h1>Navigacija</h1>
+        <!-- Thumbnails -->
         <!-- Thumbnails -->
         <section class="thumbnails">
-
+            <div>
+                <a href="/home">
+                    <img src="images/thumbs/home3.png" alt="" />
+                    <h3>Grįžti į pradinį puslapį</h3>
+                </a>
+                <a href="/kontaktai">
+                    <img src="images/thumbs/contact_us.png" alt="" />
+                    <h3>Susisiekite su mumis</h3>
+                </a>
+                <?php $a=Auth::user()->accesslevel;
+                if ($a>0){ ?>
+                <a href="/admin">
+                    <img src="images/thumbs/admin.png" alt="" />
+                    <h3>Admin Area</h3>
+                </a>
+                <?php }?>
+            </div>
+            <div>
+                <a href="/uzduotys">
+                    <img src="images/thumbs/tasks.png" alt="" />
+                    <h3>Vykdyti užduotis</h3>
+                </a>
+                <a href="/apie-mus">
+                    <img src="images/thumbs/about_us.png" alt="" />
+                    <h3>Apie mus</h3>
+                </a>
+            </div>
+            <div>
+                <a href="/informacija">
+                    <img src="images/thumbs/event.png" alt="" />
+                    <h3>Informacija apie renginį</h3>
+                </a>
+                <a href="/listing">
+                    <img src="images/thumbs/listing.png" alt="" />
+                    <h3>Turnyrinė lentelė</h3>
+                </a>
+            </div>
         </section>
-        <div>
-            <a class="btn btn-info" href="auth/logout" role="button">Logout</a>
-        </div>
     </section>
-
-    <h2 align="center">
-        <a  href="/home">
-            <img  src="images/thumbs/home3.png" alt="" />
-            <h3>Grįžti į pradinį puslapį</h3>
-        </a>
-    </h2>
 
 
     <!-- Footer -->
     <footer id="footer">
-        <p>&copy; CitySeek </a>.</p>
+        <p>&copy; CitySeek Kaunas </a>.</p>
     </footer>
 
 </div>
