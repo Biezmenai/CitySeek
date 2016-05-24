@@ -77,9 +77,7 @@ class Message
     public function to($address, $name = null, $override = false)
     {
         if ($override) {
-            $this->swift->setTo($address, $name);
-
-            return $this;
+            return $this->swift->setTo($address, $name);
         }
 
         return $this->addAddresses($address, $name, 'To');

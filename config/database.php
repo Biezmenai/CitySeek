@@ -48,21 +48,20 @@ return [
 
         'sqlite' => [
             'driver'   => 'sqlite',
-            'database' => database_path('database.sqlite'),
+            'database' => storage_path('database.sqlite'),
             'prefix'   => '',
         ],
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
+            'host'      => env('DB_HOST', '185.28.22.20'),
+            'database'  => env('DB_DATABASE', 'cityseekkaunas'),
+            'username'  => env('DB_USERNAME', 'cityseek'),
+            'password'  => env('DB_PASSWORD', 'zalgiris'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
-            'engine'    => null,
         ],
 
         'pgsql' => [
@@ -117,9 +116,8 @@ return [
         'cluster' => false,
 
         'default' => [
-            'host'     => env('REDIS_HOST', 'localhost'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port'     => env('REDIS_PORT', 6379),
+            'host'     => '127.0.0.1',
+            'port'     => 6379,
             'database' => 0,
         ],
 

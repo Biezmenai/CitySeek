@@ -11,6 +11,7 @@ use Illuminate\Contracts\Mail\Mailer;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\ProcessUtils;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Foundation\Application;
 
 class Event
 {
@@ -64,18 +65,18 @@ class Event
     public $withoutOverlapping = false;
 
     /**
-     * The array of filter callbacks.
+     * The filter callback.
      *
-     * @var array
+     * @var \Closure
      */
-    protected $filters = [];
+    protected $filter;
 
     /**
-     * The array of reject callbacks.
+     * The reject callback.
      *
-     * @var array
+     * @var \Closure
      */
-    protected $rejects = [];
+    protected $reject;
 
     /**
      * The location that output should be sent to.
@@ -142,7 +143,23 @@ class Event
      */
     public function run(Container $container)
     {
-        $this->runCommandInForeground($container);
+        if (count($this->afterCallbacks) > 0 || count($this->beforeCallbacks) > 0) {
+            $this->runCommandInForeground($container);
+        } else {
+            $this->runCommandInBackground();
+        }
+    }
+
+    /**
+     * Run the command in the background using exec.
+     *
+     * @return void
+     */
+    protected function runCommandInBackground()
+    {
+        chdir(base_path());
+
+        exec($this->buildCommand());
     }
 
     /**
@@ -200,7 +217,11 @@ class Event
         $redirect = $this->shouldAppendOutput ? ' >> ' : ' > ';
 
         if ($this->withoutOverlapping) {
-            $command = '(touch '.$this->mutexPath().'; '.$this->command.'; rm '.$this->mutexPath().')'.$redirect.$output.' 2>&1 &';
+            if (windows_os()) {
+                $command = '(echo \'\' > "'.$this->mutexPath().'" & '.$this->command.' & del "'.$this->mutexPath().'")'.$redirect.$output.' 2>&1 &';
+            } else {
+                $command = '(touch '.$this->mutexPath().'; '.$this->command.'; rm '.$this->mutexPath().')'.$redirect.$output.' 2>&1 &';
+            }
         } else {
             $command = $this->command.$redirect.$output.' 2>&1 &';
         }
@@ -215,7 +236,7 @@ class Event
      */
     protected function mutexPath()
     {
-        return storage_path('framework/schedule-'.sha1($this->expression.$this->command));
+        return storage_path('framework/schedule-'.md5($this->expression.$this->command));
     }
 
     /**
@@ -224,13 +245,14 @@ class Event
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return bool
      */
-    public function isDue($app)
+    public function isDue(Application $app)
     {
         if (! $this->runsInMaintenanceMode() && $app->isDownForMaintenance()) {
             return false;
         }
 
         return $this->expressionPasses() &&
+               $this->filtersPass($app) &&
                $this->runsInEnvironment($app->environment());
     }
 
@@ -256,18 +278,11 @@ class Event
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return bool
      */
-    public function filtersPass($app)
+    protected function filtersPass(Application $app)
     {
-        foreach ($this->filters as $callback) {
-            if (! $app->call($callback)) {
-                return false;
-            }
-        }
-
-        foreach ($this->rejects as $callback) {
-            if ($app->call($callback)) {
-                return false;
-            }
+        if (($this->filter && ! $app->call($this->filter)) ||
+             $this->reject && $app->call($this->reject)) {
+            return false;
         }
 
         return true;
@@ -482,16 +497,6 @@ class Event
     }
 
     /**
-     * Schedule the event to run quarterly.
-     *
-     * @return $this
-     */
-    public function quarterly()
-    {
-        return $this->cron('0 0 1 */3 *');
-    }
-
-    /**
      * Schedule the event to run yearly.
      *
      * @return $this
@@ -627,7 +632,7 @@ class Event
      */
     public function when(Closure $callback)
     {
-        $this->filters[] = $callback;
+        $this->filter = $callback;
 
         return $this;
     }
@@ -640,7 +645,7 @@ class Event
      */
     public function skip(Closure $callback)
     {
-        $this->rejects[] = $callback;
+        $this->reject = $callback;
 
         return $this;
     }
@@ -676,12 +681,11 @@ class Event
      * E-mail the results of the scheduled operation.
      *
      * @param  array|mixed  $addresses
-     * @param  bool  $onlyIfOutputExists
      * @return $this
      *
      * @throws \LogicException
      */
-    public function emailOutputTo($addresses, $onlyIfOutputExists = false)
+    public function emailOutputTo($addresses)
     {
         if (is_null($this->output) || $this->output == $this->getDefaultOutput()) {
             throw new LogicException('Must direct output to a file in order to e-mail results.');
@@ -689,22 +693,9 @@ class Event
 
         $addresses = is_array($addresses) ? $addresses : func_get_args();
 
-        return $this->then(function (Mailer $mailer) use ($addresses, $onlyIfOutputExists) {
-            $this->emailOutput($mailer, $addresses, $onlyIfOutputExists);
+        return $this->then(function (Mailer $mailer) use ($addresses) {
+            $this->emailOutput($mailer, $addresses);
         });
-    }
-
-    /**
-     * E-mail the results of the scheduled operation if it produces output.
-     *
-     * @param  array|mixed  $addresses
-     * @return $this
-     *
-     * @throws \LogicException
-     */
-    public function emailWrittenOutputTo($addresses)
-    {
-        return $this->emailOutputTo($addresses, true);
     }
 
     /**
@@ -712,18 +703,11 @@ class Event
      *
      * @param  \Illuminate\Contracts\Mail\Mailer  $mailer
      * @param  array  $addresses
-     * @param  bool  $includeEmpty
      * @return void
      */
-    protected function emailOutput(Mailer $mailer, $addresses, $onlyIfOutputExists = false)
+    protected function emailOutput(Mailer $mailer, $addresses)
     {
-        $text = file_get_contents($this->output);
-
-        if ($onlyIfOutputExists && empty($text)) {
-            return;
-        }
-
-        $mailer->raw($text, function ($m) use ($addresses) {
+        $mailer->raw(file_get_contents($this->output), function ($m) use ($addresses) {
             $m->subject($this->getEmailSubject());
 
             foreach ($addresses as $address) {
