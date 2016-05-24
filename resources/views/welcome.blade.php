@@ -13,6 +13,29 @@
     <!-- Header -->
     <header id="header">
         <a class="btn btn-info" href="auth/facebook" role="button">Login with Facebook</a>
+
+        <form action="upload" id="upload" enctype="multipart/form-data">
+            <input type="file" name="file[]" multiple><br />
+            <input type="submit">
+        </form>
+        <script>
+            var form = document.getElementById('upload');
+            var request = new XMLHtttpRequest();
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                var formdata = new FormData(form);
+
+                request.open('post', '/upload');
+                request.addEventListener("load", transferComplete);
+                request.send(formdata);
+            });
+
+            function transferComplete(){
+                console.log(data.currentTarget.response);
+            }
+        </script>
+
         <ul class="icons">
             <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
             <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
@@ -79,3 +102,4 @@
 
 </body>
 </html>
+

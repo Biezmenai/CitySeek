@@ -19,3 +19,5 @@ Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback
 Route::get('home', array('as' => 'home', 'uses' => function(){
   return view('home');
 }));
+
+Route::post('upload', 'UploadController@upload');
