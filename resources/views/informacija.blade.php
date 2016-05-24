@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>CitySeek</title>
+    <title>CitySeek Events</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -13,7 +13,7 @@
 <br />
 <br />
 <div style="text-align:center;">
-    <h1>Informacija apie rengini:</h1><br />
+    <h1>Informacija apie renginį</h1><br />
     Renginio tipas:   <b><p1>Ilgalaikis</p1></b>
     <br />
     Renginys ivyks:   <b>2016:06:01</b>
