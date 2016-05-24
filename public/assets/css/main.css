@@ -2591,16 +2591,29 @@
 			color: rgba(255, 255, 255, 0.65);
 		}
 
-		#header .avatar {
+		#header .userinfo {
+			border-radius: 100%;
+			display: inline-block;
+			padding: 0.5em;
+		}
+
+		#header .userinfo .avatar {
 			border-radius: 100%;
 			display: inline-block;
 			margin: 0 0 2em 0;
 			padding: 0.5em;
 			border: solid 1px rgba(255, 255, 255, 0.25);
 			background-color: rgba(255, 255, 255, 0.075);
+			float: left;
+		}
+		#header .userinfo .info {
+			float: right;
+			display: inline-block;
+			margin: 0 0 2em 0;
+			padding: 0.5em;
 		}
 
-			#header .avatar img {
+			#header .userinfo .avatar img {
 				border-radius: 100%;
 				display: block;
 				width: 5em;
