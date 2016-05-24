@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Renginys;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,10 @@ Route::get('kontaktai', array('as'=>'kontaktai', 'uses'=> function(){
     return view('kontaktai');
 }));
 
+Route::get('informacija', array('as'=>'renginys', 'uses'=> function(){
+    $renginys=Renginys::all();
+    return view('/informacija', compact('renginys'));
+}));
 
 
 
