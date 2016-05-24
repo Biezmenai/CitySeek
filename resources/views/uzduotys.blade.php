@@ -21,5 +21,5 @@ name = {{Input::get('name')}}
 
 <!-- Footer -->
 <footer id="footer">
-    <p>&copy; CitySeek </a>.</p>
+    <p>&copy; CitySeek Kaunas </a>.</p>
 </footer>
