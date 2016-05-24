@@ -17,7 +17,7 @@ class UploadController extends Controller
 
         echo 'Uploaded<br />';
         $file = Input::file('file');
-        $file->move('uploads', $file->getClientOriginalName());
+        $file->move(Input::get('foldername'), $file->getClientOriginalName());
 
 
     }
