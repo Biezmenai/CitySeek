@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Uploads extends Migration
+class Points extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class Uploads extends Migration
      */
     public function up()
     {
-        Schema::create('uploads', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('link');
-            $table->string('busena');
-            $table->string('ikelikas');
-            $table->timestamps();
+        Schema::create('points', function (Blueprint $table) {
+            $table->integer('user_id', false, false);
+            $table->integer('points', false, false);
         });
     }
 
@@ -28,6 +25,6 @@ class Uploads extends Migration
      */
     public function down()
     {
-        Schema::drop('uploads');
+        Schema::drop('points');
     }
 }

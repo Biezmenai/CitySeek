@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CitySeek Kaunas</title>
+    <title>Very secret much admin</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
+
 <!-- Wrapper -->
 <div id="wrapper">
-
-    <a class="btn btn-info" href="padidinti" role="button">zS</a>
     <!-- Header -->
     <header id="header">
-        <h1 align="center">CitySeek Kaunas</h1>
-        <div class="userinfo"><span class="avatar"><img src="{{ Auth::user()->avatar }}" alt="" /></span>
+        <h1 align="center">Very secret much admin</h1>
             <span class="info">
-                Prisijungėte kaip:  <strong>{{ Auth::user()->name }}</strong><br>
-                Jusu taškai: <strong>{{ Auth::user()->points }}</strong><br>
-                 Užimama vieta: <strong><font color="green">#{{ $rank }}</font></strong><br>
+                TU  <strong>{{ Auth::user()->name }}</strong> ESI KIEČIAUSIAS ADMINAS<br>
             </span>
-        </div>
-        <ul class="icons">
-            <li><a href="https://twitter.com/CitySeekKaunas" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="https://www.facebook.com/cityseekkaunas/" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="https://www.instagram.com/cityseekkaunas/?hl=en" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="mailto:cityseekinfo@gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
-        </ul>
-
     </header>
 
     <!-- Main -->
     <section id="main">
-        <h1>Navigacija</h1>
+        <h1>Administravimas</h1>
+        <h2>Pridėti užduotį</h2>
+        <form action="{{ URL::to('prideti_uzduoti') }}" method="post">
+
+            Rūšis: <input type="text" name="rusis" id="rusis">
+            Pavadinimas: <input type="text" name="pavadinimas" id="pavadinimas">
+            Aprašymas: <input type="text" name="aprasymas" id="aprasymas">
+            Taškų kiekis: <input type="text" name="taskai" id="taskai"><br>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="submit" value="Pridėti" name="submit">
+        </form>
+        <h2>Patvirtinti įkėlimus</h2>
+        <table>
+            <tr>
+                <td>Įkėlimo data</td>
+                <td>Foto</td>
+                <td>Skiriami taškai</td>
+                <td></td>
+            </tr>
+
+
+            @foreach( $upload as $id)
+                <tr>
+                    <td>{{$id->created_at}}</td> <td><a href="http://localhost:8000{{$id->link}}" target="_blank">http://localhost:8000{{$id->link}}</a></td> <td>{{$id->taskai}}</td>
+                    <td>
+
+                        <form action="{{ URL::to('patvirtinti') }}" method="post">
+                            <input type="submit" value="Patvirtinti" name="submit">
+                            <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                            <input type="hidden" value="{{$id->id}}" name="id" id="id">
+                            <input type="hidden" value="{{$id->task_id}}" name="task_id" id="task_id">
+                            <input type="hidden" value="{{$id->ikelikas}}" name="userid" id="userid">
+                        </form>
+
+                    </td>
+                </tr>
+            @endforeach
+
+        </table>
+        <br><h1>Navigacija</h1>
         <!-- Thumbnails -->
         <section class="thumbnails">
             <div>
@@ -45,8 +72,8 @@
                     <h3>Susisiekite su mumis</h3>
                 </a>
                 <?php $a=Auth::user()->accesslevel;
-                      if ($a>0){ ?>
-                    <a href="/admin">
+                if ($a>0){ ?>
+                <a href="/admin">
                     <img src="images/thumbs/admin.png" alt="" />
                     <h3>Admin Area</h3>
                 </a>
@@ -83,11 +110,11 @@
 
 </div>
 
+</body>
+
+
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.poptrox.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/main.js"></script>
-
-</body>
-</html>

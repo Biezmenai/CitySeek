@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Upload extends Model
+class Task extends Model
 {
 
     /**
@@ -12,14 +12,14 @@ class Upload extends Model
      *
      * @var string
      */
-    protected $table = 'uploads';
+    protected $table = 'tasks';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['id','link', 'busena', 'ikelikas', 'task_id'];
+    protected $fillable = ['rusis','pavadinimas', 'vartotojas', 'aprasymas', 'taskai', 'busena'];
 
     /**
      * The attributes excluded from the model's JSON form.

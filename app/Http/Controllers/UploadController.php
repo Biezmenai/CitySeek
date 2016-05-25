@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use \Input as Input;
 use Illuminate\Http\Request;
 use App\Upload;
+use App\Task;
+use DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -113,13 +115,18 @@ class UploadController extends Controller
         echo $callback;
         //echo '<a href="/home">grizti</a>';
         $file = Input::file('file');
-        $file->move(Input::get('foldername'), $file->getClientOriginalName());
+        $file->move(Input::get('foldername'), Input::get("task_id").".jpg");
 
         Upload::create([
-            'link' => Input::get('link').'/'.$file->getClientOriginalName(),
+            'link' => Input::get('link').'/'.Input::get("task_id").".jpg",
             'ikelikas' => Input::get('owner'),
-            'busena' => '0'
+            'busena' => '0',
+            'task_id' => Input::get("task_id"),
+            'taskai' => Input::get('taskai')
         ]);
+        DB::table('tasks')
+            -> where('id', Input::get("task_id"))
+            -> update(['busena' => 1]);
     }
       else {
           $callback2 = '

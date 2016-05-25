@@ -2,6 +2,8 @@
 
 use App\User;
 use App\Renginys;
+use App\Task;
+use App\Upload;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,8 @@ Route::get('/', function () {
 
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::post('ideti', 'UploadController@ideti');
+Route::post('prideti_uzduoti', 'AdminController@prideti_uzduoti');
+Route::post('patvirtinti', 'AdminController@patvirtinti');
 Route::get('padidinti', 'ToplistController@S1');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('home', array('as' => 'home', 'uses' => function(){
@@ -45,6 +49,17 @@ Route::get('informacija', array('as'=>'renginys', 'uses'=> function(){
     return view('/informacija', compact('renginys'));
 }));
 
+Route::get('uzduotys', array('as'=>'tasks', 'uses'=> function(){
+    //$tasks=Task::all()->where('vartotojas', Auth::user()->facebook_id);
+    $tasks=Task::all()->where('vartotojas', Auth::user()->facebook_id)->where('busena', '0');
+    return view('/uzduotys', compact('tasks'));
+}));
+
+Route::get('admin', array('as'=>'upload', 'uses'=> function(){
+    $upload=Upload::all()->where('busena','0');
+    return view('/admin', compact('upload'));
+}));
+
 
 
 
@@ -55,9 +70,6 @@ Route::get('/listing', function(){
     return view('/listing', compact('users'));
 });
 
-Route::get('/admin', function(){
-    return View::make('Admin.admin');
-});
 
 Route::post('uzduotys', array(
     'as'=> 'uzduotys',
