@@ -14,6 +14,12 @@
     if ($a>0){ ?>
     <!-- Header -->
     <header id="header">
+
+        <h1 align="center">CitySeek Kaunas</h1>
+
+<?php $a=Auth::user()->accesslevel;
+if ($a>0){ ?>
+
         <h1 align="center">Very secret much admin</h1>
             <span class="info">
                 TU  <strong>{{ Auth::user()->name }}</strong> ESI KIEČIAUSIAS ADMINAS<br>
@@ -75,7 +81,7 @@
             @endforeach
 
         </table>
-        <?php }?>
+<?php }?>
         <br><h1>Navigacija</h1>
         <!-- Thumbnails -->
         <section class="thumbnails">
