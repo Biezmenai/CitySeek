@@ -76,7 +76,6 @@
         </section>
     </section>
 
-
     <!-- Footer -->
     <footer id="footer">
         <p>&copy; CitySeek Kaunas </a>.</p>

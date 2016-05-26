@@ -51,7 +51,7 @@
 
             </table>
 
-            <br><h1>Navigacija</h1>
+            <br>        <h1>Navigacija</h1>
             <!-- Thumbnails -->
             <section class="thumbnails">
                 <div>
@@ -63,13 +63,6 @@
                         <img src="images/thumbs/contact_us.png" alt="" />
                         <h3>Susisiekite su mumis</h3>
                     </a>
-                    <?php $a=Auth::user()->accesslevel;
-                    if ($a>0){ ?>
-                    <a href="/admin">
-                        <img src="images/thumbs/admin.png" alt="" />
-                        <h3>Admin Area</h3>
-                    </a>
-                    <?php }?>
                 </div>
                 <div>
                     <a href="/uzduotys">
@@ -86,6 +79,15 @@
                         <img src="images/thumbs/event.png" alt="" />
                         <h3>Informacija apie renginį</h3>
                     </a>
+                    <?php $a=Auth::user()->accesslevel;
+                    if ($a>0){ ?>
+                    <a href="/admin">
+                        <img src="images/thumbs/admin.png" alt="" />
+                        <h3>Admin Area</h3>
+                    </a>
+                    <?php }?>
+                </div>
+                <div>
                     <a href="/listing">
                         <img src="images/thumbs/listing.png" alt="" />
                         <h3>Turnyrinė lentelė</h3>
@@ -93,7 +95,6 @@
                 </div>
             </section>
         </section>
-
 
         <!-- Footer -->
         <footer id="footer">
