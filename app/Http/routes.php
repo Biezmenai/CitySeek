@@ -66,7 +66,7 @@ Route::get('admin', array('as'=>'upload', 'uses'=> function(){
 
 Route::get('/listing', function(){
 
-    $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(5);
+    $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(20);
 
     return view('/listing', compact('users'));
 });
