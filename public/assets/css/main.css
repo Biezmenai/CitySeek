@@ -2637,6 +2637,15 @@
 				padding: 0.5em;
 			}
 
+			#header .userinfo .avatar {
+
+				float: none;
+			}
+			#header .userinfo .info {
+				float: none;
+
+			}
+
 		}
 
 /* Footer */
