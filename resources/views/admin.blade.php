@@ -10,6 +10,8 @@
 
 <!-- Wrapper -->
 <div id="wrapper">
+    <?php $a=Auth::user()->accesslevel;
+    if ($a>0){ ?>
     <!-- Header -->
     <header id="header">
         <h1 align="center">Very secret much admin</h1>
@@ -73,6 +75,7 @@
             @endforeach
 
         </table>
+        <?php }?>
         <br><h1>Navigacija</h1>
         <!-- Thumbnails -->
         <section class="thumbnails">
