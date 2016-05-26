@@ -2494,10 +2494,10 @@
 	padding: 1px 5px 30px 5px;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 320px) {
 
 	#fbLogin img {
-		width: 70%;
+		width: 90%;
 	}
 }
 
