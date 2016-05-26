@@ -38,12 +38,13 @@
                 <td>Foto</td>
                 <td>Skiriami taškai</td>
                 <td></td>
+                <td></td>
             </tr>
 
 
             @foreach( $upload as $id)
                 <tr>
-                    <td>{{$id->created_at}}</td> <td><a href="http://localhost:8000{{$id->link}}" target="_blank">http://localhost:8000{{$id->link}}</a></td> <td>{{$id->taskai}}</td>
+                    <td>{{$id->created_at}}</td> <td><a href="http://localhost:8000{{$id->link}}" target="_blank">http://localhost:8000{{$id->link}}</a></td> <td>{{$id->taskaiuzduoti}}</td>
                     <td>
 
                         <form action="{{ URL::to('patvirtinti') }}" method="post">
@@ -52,6 +53,19 @@
                             <input type="hidden" value="{{$id->id}}" name="id" id="id">
                             <input type="hidden" value="{{$id->task_id}}" name="task_id" id="task_id">
                             <input type="hidden" value="{{$id->ikelikas}}" name="userid" id="userid">
+                            <input type="hidden" value="{{$id->taskaiuzduoti}}" name="taskaiuzduoti" id="taskaiuzduoti">
+                        </form>
+
+                    </td>
+                    <td>
+
+                        <form action="{{ URL::to('decline') }}" method="post">
+                            <input type="submit" value="Atšaukti" name="submit">
+                            <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                            <input type="hidden" value="{{$id->id}}" name="id" id="id">
+                            <input type="hidden" value="{{$id->task_id}}" name="task_id" id="task_id">
+                            <input type="hidden" value="{{$id->ikelikas}}" name="userid" id="userid">
+                            <input type="hidden" value="{{$id->taskaiuzduoti}}" name="taskaiuzduoti" id="taskaiuzduoti">
                         </form>
 
                     </td>

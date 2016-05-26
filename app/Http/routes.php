@@ -23,6 +23,7 @@ Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::post('ideti', 'UploadController@ideti');
 Route::post('prideti_uzduoti', 'AdminController@prideti_uzduoti');
 Route::post('patvirtinti', 'AdminController@patvirtinti');
+Route::post('decline', 'AdminController@decline');
 Route::get('padidinti', 'ToplistController@S1');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('home', array('as' => 'home', 'uses' => function(){

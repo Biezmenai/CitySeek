@@ -10,7 +10,6 @@
 <!-- Wrapper -->
 <div id="wrapper">
 
-    <a class="btn btn-info" href="padidinti" role="button">zS</a>
     <!-- Header -->
     <header id="header">
         <h1 align="center">CitySeek Kaunas</h1>

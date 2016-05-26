@@ -32,7 +32,6 @@ class UploadController extends Controller
 <!-- Wrapper -->
 <div id="wrapper">
 
-    <a class="btn btn-info" href="padidinti" role="button">zS</a>
     <!-- Header -->
     <header id="header">
         <h1 align="center">CitySeek Kaunas</h1>
@@ -121,12 +120,16 @@ class UploadController extends Controller
             'link' => Input::get('link').'/'.Input::get("task_id").".jpg",
             'ikelikas' => Input::get('owner'),
             'busena' => '0',
-            'task_id' => Input::get("task_id"),
-            'taskai' => Input::get('taskai')
+            'task_id' => Input::get("task_id")
+
         ]);
         DB::table('tasks')
             -> where('id', Input::get("task_id"))
             -> update(['busena' => 1]);
+
+        DB::table('uploads')
+            -> where('ikelikas', Input::get('owner')) -> where('task_id',Input::get("task_id") )
+            -> update(['taskaiuzduoti' => Input::get('taskaiuzduoti')]);
     }
       else {
           $callback2 = '
@@ -142,7 +145,6 @@ class UploadController extends Controller
 <!-- Wrapper -->
 <div id="wrapper">
 
-    <a class="btn btn-info" href="padidinti" role="button">zS</a>
     <!-- Header -->
     <header id="header">
         <h1 align="center">CitySeek Kaunas</h1>

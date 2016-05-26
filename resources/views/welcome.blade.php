@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>CitySeek</title>
@@ -6,18 +7,12 @@
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-
-<header id="header">
-    <h1 align="center">CitySeek Kaunas</h1>
-    <div  style="padding: 1px 5px 30px 5px;"><a href="auth/facebook"><img src="images/thumbs/login-facebook.png" width="300px"></a></div>
-
-
-
 <!-- Wrapper -->
 <div id="wrapper">
 
     <!-- Header -->
-
+    <header id="header">
+        <h1 align="center">CitySeek Kaunas</h1>
 
     <ul class="icons">
         <li><a href="https://twitter.com/CitySeekKaunas" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
@@ -30,50 +25,12 @@
 
     <!-- Main -->
     <section id="main">
-
-        <!-- Thumbnails -->
-        <section class="thumbnails">
-            <div>
-                <a href="images/fulls/01.jpg">
-                    <img src="images/thumbs/01.jpg" alt="" />
-                    <h3> </h3>
-                </a>
-                <a href="images/fulls/02.jpg">
-                    <img src="images/thumbs/02.jpg" alt="" />
-                    <h3> </h3>
-                </a>
-            </div>
-            <div>
-                <a href="images/fulls/03.jpg">
-                    <img src="images/thumbs/03.jpg" alt="" />
-                    <h3> </h3>
-                </a>
-                <a href="images/fulls/04.jpg">
-                    <img src="images/thumbs/04.jpg" alt="" />
-                    <h3> </h3>
-                </a>
-                <a href="images/fulls/05.jpg">
-                    <img src="images/thumbs/05.jpg" alt="" />
-                    <h3> </h3>
-                </a>
-            </div>
-            <div>
-                <a href="/home">
-                    <img src="images/thumbs/home3.png" alt="" />
-                    <h3> </h3>
-                </a>
-                <a href="images/fulls/07.jpg">
-                    <img src="images/thumbs/07.jpg" alt="" />
-                    <h3> </h3>
-                </a>
-            </div>
-        </section>
-
+        <h1 align="center">Norėdami pradėti - prisijunkite!</h1>
+        <div align="center" style="padding: 1px 5px 30px 5px;"><a href="auth/facebook"><img src="images/thumbs/login-facebook.png" width="300px"></a></div>
     </section>
-
     <!-- Footer -->
     <footer id="footer">
-        <p>&copy; CitySeek </a>.</p>
+        <p>&copy; CitySeek Kaunas </a>.</p>
     </footer>
 
 </div>
@@ -86,4 +43,3 @@
 
 </body>
 </html>
-

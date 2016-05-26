@@ -59,7 +59,7 @@
                             <input type="hidden" value="{{Auth::user()->facebook_id}}" name="owner" id="owner">
                             <input type="hidden" value="/uploads/{{Auth::user()->facebook_id}}" name="link" id="link">
                             <input type="hidden" value="{{$id->id}}" name="task_id" id="task_id">
-                            <input type="hidden" value="{{$id->taskai}}" name="taskai" id="taskai">
+                            <input type="hidden" value="{{$id->taskai}}" name="taskaiuzduoti" id="taskaiuzduoti">
                         </form></div>
                     </td>
                 </tr>
