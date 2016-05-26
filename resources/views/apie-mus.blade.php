@@ -39,7 +39,7 @@
                     <td> </td>
                 </tr>
                 @foreach( $users as $key => $h)
-		    <?php if ($h->accesslevel > 0) { ?>
+		    <?php  { ?>
                     <tr>
                         <td>{{ $h->name }}</td> <td>{{"IF-4/9"}}</td> <td><img src="{{ $h->avatar }}" alt=""/> </td>
                     </tr>
