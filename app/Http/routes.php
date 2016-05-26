@@ -84,7 +84,7 @@ Route::get('home', array('as' => 'home', 'uses' => 'ToplistController@watchTops'
 
 Route::get('/apie-mus', function(){
 
-    $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(5);
+    $users = User::all()->sortBy('points', SORT_REGULAR, true)->take();
 
     return view('/apie-mus', compact('users'));
 });
