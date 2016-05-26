@@ -44,7 +44,7 @@
 
             @foreach( $upload as $id)
                 <tr>
-                    <td>{{$id->created_at}}</td> <td><a href="http://localhost:8000{{$id->link}}" target="_blank">http://localhost:8000{{$id->link}}</a></td> <td>{{$id->taskaiuzduoti}}</td>
+                    <td>{{$id->created_at}}</td> <td><a href="http://cityseek.ml{{$id->link}}" target="_blank">http://cityseek.ml{{$id->link}}</a></td> <td>{{$id->taskaiuzduoti}}</td>
                     <td>
 
                         <form action="{{ URL::to('patvirtinti') }}" method="post">
