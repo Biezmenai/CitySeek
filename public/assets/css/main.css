@@ -2637,11 +2637,11 @@
 
 			}
 			#header .userinfo .info {
-				float: right;
+
 				display: inline-block;
 				margin: 0 0 2em 0;
 				padding: 0.5em;
-
+				text-align: left;
 			}
 
 		}
