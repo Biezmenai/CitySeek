@@ -2432,6 +2432,7 @@
 			-ms-flex-direction: column;
 			flex-direction: column;
 			width: calc(100% / 3);
+			height: calc(100% / 3);
 			padding-left: 2em;
 		}
 
