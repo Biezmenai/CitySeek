@@ -19,7 +19,7 @@ class Task extends Model
      *
      * @var array
      */
-    protected $fillable = ['rusis','pavadinimas', 'vartotojas', 'aprasymas', 'taskai', 'busena'];
+    protected $fillable = ['rusis', 'uzduoties_nr','pavadinimas', 'vartotojas', 'aprasymas', 'taskai', 'busena'];
 
     /**
      * The attributes excluded from the model's JSON form.

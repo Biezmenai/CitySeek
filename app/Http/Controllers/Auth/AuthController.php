@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Auth;
+use DB;
+use App\Task;
 use Socialite;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -112,7 +114,20 @@ class AuthController extends Controller
             return $authUser;
         }
 
+        $taskai = DB::table('tasks')->select('*')
+            ->groupBy('uzduoties_nr')
+            ->get();
 
+        foreach( $taskai as $id){
+            DB::table('tasks')->insert([
+
+                ['rusis' => $id->rusis, 'uzduoties_nr'=>$id->uzduoties_nr, 'pavadinimas' => $id->pavadinimas,
+                    'aprasymas' => $id->aprasymas, 'taskai' => $id->taskai,
+                    'vartotojas' => $facebookUser->id, 'busena' => '0'
+                ]
+
+            ]);
+        }
 
         return User::create([
             'name' => $facebookUser->name,
