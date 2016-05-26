@@ -26,7 +26,7 @@
     <!-- Main -->
     <section id="main">
         <h1 align="center">Norėdami pradėti - prisijunkite!</h1>
-        <div align="center" style="padding: 1px 5px 30px 5px;"><a href="auth/facebook"><img src="images/thumbs/login-facebook.png" width="300px"></a></div>
+        <div id="fbLogin" align="center"><a href="auth/facebook"><img src="images/thumbs/login-facebook.png" width="300px"></a></div>
     </section>
     <!-- Footer -->
     <footer id="footer">
