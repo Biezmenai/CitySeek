@@ -14,6 +14,7 @@ class Tasks extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('uzduoties_nr');
             $table->string('rusis');
             $table->string('pavadinimas');
             $table->string('aprasymas');

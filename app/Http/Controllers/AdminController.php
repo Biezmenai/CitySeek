@@ -104,11 +104,12 @@ Užduotis pridėta!<br>
 
 
         $users=DB::table('users')->get();
+        $maxUzduotiesNr=DB::table('tasks')->max('uzduoties_nr')+1;
 
         foreach ($users as $user) {
             DB::table('tasks')->insert([
 
-                ['rusis' => Input::get('rusis'), 'pavadinimas' => Input::get('pavadinimas'),
+                ['rusis' => Input::get('rusis'), 'uzduoties_nr'=>$maxUzduotiesNr, 'pavadinimas' => Input::get('pavadinimas'),
                     'aprasymas' => Input::get('aprasymas'), 'taskai' => Input::get('taskai'),
                     'vartotojas' => $user->facebook_id, 'busena' => '0'
                 ]
