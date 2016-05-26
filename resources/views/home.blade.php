@@ -66,10 +66,14 @@
                     <img src="images/thumbs/event.png" alt="" />
                     <h3>Informacija apie renginį</h3>
                 </a>
-                <a href="/listing">
-                    <img src="images/thumbs/listing.png" alt="" />
-                    <h3>Turnyrinė lentelė</h3>
-                </a>
+
+            </div>
+            <a href="/listing">
+                <img src="images/thumbs/listing.png" alt="" />
+                <h3>Turnyrinė lentelė</h3>
+            </a>
+            <div>
+
             </div>
         </section>
     </section>
