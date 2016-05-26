@@ -40,14 +40,13 @@
                 <td>Pavadinimas</td>
                 <td>Aprašymas</td>
                 <td>Taškai</td>
-                <td>Liko laiko</td>
                 <td></td>
             </tr>
 
             @foreach( $tasks as $id)
                 <?php $aprasymas = $id->aprasymas; ?>
                 <tr>
-                    <td>{{$id->rusis}}</td> <td>{{$id->pavadinimas}}</td> <td><div class="item"><?php echo $aprasymas;?></div></td> <td>{{$id->taskai}}</td><td></td>
+                    <td>{{$id->rusis}}</td> <td>{{$id->pavadinimas}}</td> <td><div class="item"><?php echo $aprasymas;?></div></td> <td>{{$id->taskai}}</td>
                     <td>
                         <div class="vykdyti">
                         <form action="{{ URL::to('ideti') }}" method="post" enctype="multipart/form-data">
