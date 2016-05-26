@@ -19,8 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', array('before' => 'auth', 'uses' => 'HomeController@index'));
-
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::post('ideti', 'UploadController@ideti');
 Route::post('prideti_uzduoti', 'AdminController@prideti_uzduoti');
