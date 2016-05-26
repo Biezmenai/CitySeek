@@ -2496,9 +2496,10 @@
 
 @media screen and (max-width: 360px) {
 
-	#fbLogin  {
-		width: 70%;
+	#fbLogin {
+		width: 200px;
 	}
+}
 
 /* Poptrox */
 
