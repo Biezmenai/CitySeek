@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', array('before' => 'auth'));
+
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::post('ideti', 'UploadController@ideti');
 Route::post('prideti_uzduoti', 'AdminController@prideti_uzduoti');
