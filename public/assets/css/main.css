@@ -2496,8 +2496,8 @@
 
 @media screen and (max-width: 360px) {
 
-	#fbLogin {
-		width: 200px;
+	#fbLogin img {
+		width: 70%;
 	}
 }
 
