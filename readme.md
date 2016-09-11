@@ -7,3 +7,4 @@ Kūrėjai:
 * Lukas Kučinskas (lukas.kucinskas@ktu.edu)
 * Kristupas Vaitkus (kristupas.vaitkus@ktu.edu)
 * Linas Levanas (linas.levanas@ktu.edu)
+* teip
