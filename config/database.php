@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', '185.28.22.20'),
-            'database'  => env('DB_DATABASE', 'cityseekkaunas'),
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => env('DB_DATABASE', 'cityseek'),
             'username'  => env('DB_USERNAME', 'cityseek'),
-            'password'  => env('DB_PASSWORD', 'zalgiris'),
+            'password'  => env('DB_PASSWORD', 'D*Cid7g74^U&GicUf1z2'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
