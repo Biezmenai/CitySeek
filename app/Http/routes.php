@@ -16,7 +16,13 @@ use App\Upload;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::user()) {
+        return view('home');
+    }
+    else {
+        return view('welcome');
+    }
+
 });
 
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
