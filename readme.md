@@ -17,6 +17,9 @@
 
 `127.0.0.1    cityseek.dev`
 
+* In PHPStorm: VCS -> Checkout from Version Control -> GitHub:
+
+
 ## Orientacinių varžybų sistema
 
 Projektinis darbas: Orientacinių varžybų sistema
