@@ -5,9 +5,9 @@
 * Edit `C:\xampp\apache\conf\extra\httpd-vhosts.conf` adding these lines: 
 ```
     <VirtualHost cityseek.dev:80>
-        DocumentRoot "C:\xampp\htdocs\cityseek\public"
+        DocumentRoot "C:\xampp\htdocs\cityseek\CitySeek\public"
         ServerAdmin cityseek.dev
-        <Directory "C:\xampp\htdocs\cityseek">
+        <Directory "C:\xampp\htdocs\cityseek\CitySeek">
             Options Indexes FollowSymLinks
             AllowOverride All
             Require all granted
