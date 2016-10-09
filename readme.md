@@ -23,6 +23,9 @@
  
 * Navigate to http://cityseek.dev/phpmyadmin . Create new database: `cityseek`
 * Import sql of cityseek to the database. Get it from me :)
+* change .env and /config/database.php files accordingly
+* Add `curl.cainfo="C:/xampp/ca-bundle.crt"` to php.ini
+* Put `ca-bundle.crt` file to /xampp
 
 ## Orientacinių varžybų sistema
 
