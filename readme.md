@@ -4,13 +4,21 @@
 2. Edit C:\xampp\apache\conf\extra\httpd-vhosts.conf adding these lines: 
 
 ```<VirtualHost cityseek.dev:80>  
+
     DocumentRoot "C:\xampp\htdocs\cityseek\public"  
+    
     ServerAdmin cityseek.dev  
+    
     <Directory "C:\xampp\htdocs\cityseek">  
+    
         Options Indexes FollowSymLinks  
+        
         AllowOverride All  
+        
         Require all granted  
+        
     </Directory>  
+    
 </VirtualHost>```
 
 ## Orientacinių varžybų sistema
