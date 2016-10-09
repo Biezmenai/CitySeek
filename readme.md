@@ -3,6 +3,7 @@
 2. Install Composer: https://getcomposer.org/Composer-Setup.exe
 2. Edit C:\xampp\apache\conf\extra\httpd-vhosts.conf adding these lines: 
 
+<div>
 <VirtualHost cityseek.dev:80>
     DocumentRoot "C:\xampp\htdocs\cityseek\public"
     ServerAdmin cityseek.dev
@@ -12,6 +13,7 @@
         Require all granted
     </Directory>
 </VirtualHost>
+</div>
 
 ## Orientacinių varžybų sistema
 
