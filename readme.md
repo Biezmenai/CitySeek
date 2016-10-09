@@ -1,6 +1,7 @@
 ## How to setup CitySeek development platform on XAMPP (Windows):
 * Install XAMPP: https://www.apachefriends.org/xampp-files/5.6.24/xampp-win32-5.6.24-1-VC11-installer.exe
 * Install Composer: https://getcomposer.org/Composer-Setup.exe
+* Install Git: https://git-scm.com/download/win
 * Edit `C:\xampp\apache\conf\extra\httpd-vhosts.conf` adding these lines: 
 ```
     <VirtualHost cityseek.dev:80>
