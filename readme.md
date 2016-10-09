@@ -21,6 +21,7 @@
  - Directory: `C:\xampp\htdocs\cityseek`
  
 * Navigate to http://cityseek.dev/phpmyadmin . Create new database: `cityseek`
+* Import sql of cityseek to the database. Get it from me :)
 
 ## Orientacinių varžybų sistema
 
