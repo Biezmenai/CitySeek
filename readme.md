@@ -19,6 +19,8 @@
 
 * In PHPStorm: VCS -> Checkout from Version Control -> GitHub: http://prnt.sc/cro0wv
  - Directory: `C:\xampp\htdocs\cityseek`
+ 
+* Navigate to http://cityseek.dev/phpmyadmin . Create new database: `cityseek`
 
 ## Orientacinių varžybų sistema
 
