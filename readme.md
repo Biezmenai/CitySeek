@@ -18,7 +18,7 @@
 `127.0.0.1    cityseek.dev`
 
 * In PHPStorm: VCS -> Checkout from Version Control -> GitHub: http://prnt.sc/cro0wv
-
+ - Directory: `C:\xampp\htdocs\cityseek`
 
 ## Orientacinių varžybų sistema
 
