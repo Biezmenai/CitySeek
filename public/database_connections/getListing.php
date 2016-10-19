@@ -11,6 +11,6 @@
 $result = mysqli_query($conn, 'SELECT * FROM `users` ORDER BY `points` DESC');
 mysqli_close($conn);
 foreach($result as $key => $h) { ?>
-        <?=$key?>:<?=$h["name"]?>:<?=$h["points"]?>.
+        <?=$key?>:<?=$h["name"]?>:<?=$h["points"]?>:
 <?php
 } ?>
