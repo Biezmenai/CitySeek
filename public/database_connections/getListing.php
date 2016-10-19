@@ -1,4 +1,3 @@
-<meta charset="UTF-8">
 <?php
 /**
  * Created by PhpStorm.
@@ -12,6 +11,6 @@
 $result = mysqli_query($conn, 'SELECT * FROM `users` ORDER BY `points` DESC');
 mysqli_close($conn);
 foreach($result as $key => $h) { ?>
-        <?=$key?>:<?=$h["name"]?>:<?=$h["points"]?><br />
+        <?=$key?>:<?=$h["name"]?>:<?=$h["points"]?>.
 <?php
 } ?>
