@@ -122,11 +122,9 @@ class TeamController extends Controller
 
     public function editTeamView($id)
     {
-        $team = Team::with('members')->find($id);
+        $teams = Team::with('members')->get();
 
-        return view('admin-views/team-edit', compact('team'));
-
-        //return $team;
+        return view('admin-views/team-edit', compact('teams'));
     }
 
     public function editTeam()
