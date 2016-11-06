@@ -5,6 +5,7 @@ use App\Renginys;
 use App\Task;
 use App\Upload;
 use App\News;
+use App\Event;
 use App\Team;
 use Carbon\Carbon;
 
@@ -150,3 +151,19 @@ Route::get('admin/teams', ['middleware' => 'admin', 'uses' => 'TeamController@vi
 Route::get('admin/teams/edit/{id}', ['middleware' => 'admin', 'uses' => 'TeamController@editTeamView']);
 
 Route::get('admin/teams/delete/{id}', ['middleware' => 'admin', 'uses' => 'TeamController@deleteTeam']);
+
+
+
+/* Event routes */
+
+Route::get('admin/new-event', ['middleware' => 'admin', 'uses' => 'EventController@createNewView']);
+
+Route::get('admin/events', ['middleware' => 'admin', 'uses' => 'EventController@eventsListView']);
+
+Route::get('admin/events/delete/{id}', ['middleware' => 'admin', 'uses' => 'EventController@deleteEvent']);
+
+Route::get('admin/events/edit/{id}', ['middleware' => 'admin', 'uses' => 'EventController@editEvent']);
+
+Route::post('admin/new-event/add-event', ['middleware' => 'admin', 'uses' => 'EventController@createNewEventSubmit']);
+
+Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'EventController@editEventSubmit']);
