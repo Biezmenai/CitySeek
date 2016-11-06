@@ -121,6 +121,13 @@ Route::post('join-team', ['middleware' => 'auth', 'uses' => 'TeamController@join
 
 Route::get('komanda/{id}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@viewTeam']);
 
+Route::get('/komanda/{id}/deletemember/{memberid}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@deleteMember']);
+
+Route::get('/komanda/{id}/changecaptain/{memberid}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@changeCaptain']);
+
+Route::get('komanda/{id}/change-secret', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@changeSecret']);
+
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
