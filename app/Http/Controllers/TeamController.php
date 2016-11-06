@@ -144,25 +144,6 @@ class TeamController extends Controller
         return Redirect::back();
     }
 
-    public function removeMember($teamId, $memberId)
-    {
-        $team= Team::find($teamId);
-        if ($memberId == $team->captain) {
-            Session::flash('error-message', 'Kapitono negalima pašalinti');
-            return Redirect::back();
-        } else {
-            $user = User::find($memberId);
-            $user->team = 0;
-            $user->save();
-
-            $team->members_count--;
-            $team->save();
-
-            Session::flash('success-message', 'Vartotojas pašalintas iš komandos');
-            return Redirect::back();
-        }
-    }
-
 
 }
 

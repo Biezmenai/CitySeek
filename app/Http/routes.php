@@ -150,9 +150,3 @@ Route::get('admin/teams', ['middleware' => 'admin', 'uses' => 'TeamController@vi
 Route::get('admin/teams/edit/{id}', ['middleware' => 'admin', 'uses' => 'TeamController@editTeamView']);
 
 Route::get('admin/teams/delete/{id}', ['middleware' => 'admin', 'uses' => 'TeamController@deleteTeam']);
-
-Route::get('/admin/teams/edit/{id}/change-captain/{memberid}', ['middleware' => 'admin', 'uses' => 'TeamController@changeCaptain']);
-
-Route::get('/admin/teams/edit/{teamId}/remove-member/{memberId}', ['middleware' => 'admin', 'uses' => 'TeamController@removeMember']);
-
-Route::get('/admin/teams/edit/{id}/regenerate-secret', ['middleware' => 'admin', 'uses' => 'TeamController@changeSecret']);
