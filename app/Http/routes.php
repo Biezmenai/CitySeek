@@ -5,6 +5,7 @@ use App\Renginys;
 use App\Task;
 use App\Upload;
 use App\News;
+use App\Event;
 use App\Team;
 use Carbon\Carbon;
 
@@ -121,6 +122,13 @@ Route::post('join-team', ['middleware' => 'auth', 'uses' => 'TeamController@join
 
 Route::get('komanda/{id}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@viewTeam']);
 
+Route::get('/komanda/{id}/deletemember/{memberid}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@deleteMember']);
+
+Route::get('/komanda/{id}/changecaptain/{memberid}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@changeCaptain']);
+
+Route::get('komanda/{id}/change-secret', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@changeSecret']);
+
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -150,3 +158,25 @@ Route::get('admin/teams', ['middleware' => 'admin', 'uses' => 'TeamController@vi
 Route::get('admin/teams/edit/{id}', ['middleware' => 'admin', 'uses' => 'TeamController@editTeamView']);
 
 Route::get('admin/teams/delete/{id}', ['middleware' => 'admin', 'uses' => 'TeamController@deleteTeam']);
+
+Route::get('/admin/teams/edit/{id}/change-captain/{memberid}', ['middleware' => 'admin', 'uses' => 'TeamController@changeCaptain']);
+
+Route::get('/admin/teams/edit/{teamId}/remove-member/{memberId}', ['middleware' => 'admin', 'uses' => 'TeamController@removeMember']);
+
+Route::get('/admin/teams/edit/{id}/regenerate-secret', ['middleware' => 'admin', 'uses' => 'TeamController@changeSecret']);
+
+
+
+/* Event routes */
+
+Route::get('admin/new-event', ['middleware' => 'admin', 'uses' => 'EventController@createNewView']);
+
+Route::get('admin/events', ['middleware' => 'admin', 'uses' => 'EventController@eventsListView']);
+
+Route::get('admin/events/delete/{id}', ['middleware' => 'admin', 'uses' => 'EventController@deleteEvent']);
+
+Route::get('admin/events/edit/{id}', ['middleware' => 'admin', 'uses' => 'EventController@editEvent']);
+
+Route::post('admin/new-event/add-event', ['middleware' => 'admin', 'uses' => 'EventController@createNewEventSubmit']);
+
+Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'EventController@editEventSubmit']);

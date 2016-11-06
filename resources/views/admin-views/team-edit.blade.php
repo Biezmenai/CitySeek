@@ -31,7 +31,7 @@
                 <input onchange="style='display: block;'" id="file-input" type="file" name="img" id="img"/>
             </div>
             <label>Slaptas kodas</label><br>
-            {{$team->secret}} <a onclick="return confirm('Ar tikrai pakeisti komandos kodą?')" href="/admin/teams/edit/{{$team->id}}/regenerate-secret/{{$member->id}}"><i title="Generate new secret" class="fa fa-refresh" aria-hidden="true"></i></a>
+            {{$team->secret}} <a onclick="return confirm('Ar tikrai pakeisti komandos kodą?')" href="/admin/teams/edit/{{$team->id}}/regenerate-secret"><i title="Generate new secret" class="fa fa-refresh" aria-hidden="true"></i></a>
             <br>
             <button type="submit" class="btn btn-primary w3-margin-top">Išsaugoti</button>
         </form>
