@@ -18,15 +18,25 @@
                 <label>Komandos pavadinimas</label>
                 <input class="w3-input w3-margin" type="text" name="name" id="name">
 
-                <label>Nuotrauka/logotipas</label>
-                <input class="w3-input w3-margin" type="file" name="img" id="img">
+                <label>Nuotrauka/logotipas</label> (Nedidesnė nei 10MB dydžio, bei 200x200px rezoliucijos)
+                <div class="image-upload w3-margin-bottom">
+                    <label title="Pasirinkti nuotrauką" onmouseover="style='cursor:pointer'" for="img">
+                        <img src="/images/thumbs/default-team.png"/>
+                    </label>
+                    <input onchange="style='display: block;'" type="file" name="img" id="img"/>
+                </div>
 
                 <button type="submit" class="w3-btn w3-green">Sukurti</button>
             </form>
         </div>
     </div>
 </div>
-
+<style>
+    .image-upload > input
+    {
+        display: none;
+    }
+</style>
 <script>
     function validateForm() {
         var errorBox = document.getElementById("error-box");
