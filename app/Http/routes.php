@@ -22,8 +22,8 @@ Carbon::setLocale('lt');
 
 Route::get('/', function () {
     $news = News::orderBy('news.created_at', SORT_DESC, true)->paginate(3);
-    $team = Team::where('id', '=', Auth::user()->team)->first();
     if (Auth::user()) {
+        $team = Team::where('id', '=', Auth::user()->team)->first();
         return view('home', compact('news', 'team'));
     }
     else {
@@ -32,8 +32,8 @@ Route::get('/', function () {
 
 Route::get('home', array('as'=>'home', 'uses' => function(){
     $news = News::orderBy('news.created_at', SORT_DESC, true)->paginate(3);
-    $team = Team::where('id', '=', Auth::user()->team)->first();
     if (Auth::user()) {
+        $team = Team::where('id', '=', Auth::user()->team)->first();
         return view('home', compact('news', 'team'));
     }
     else {
