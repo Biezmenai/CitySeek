@@ -107,7 +107,7 @@ class TeamController extends Controller
 
     public function viewTeam($id)
     {
-        $team = Team::find($id);
+        $team = Team::with("members")->find($id);
 
         return view('komanda', compact('team'));
 
@@ -144,6 +144,46 @@ class TeamController extends Controller
         return Redirect::back();
     }
 
+    public function deleteMember($id,$memberid)
+    {
+        $user= User::find($memberid);
+        $team=Team::find($user->team);
+        $team->members_count--;
+        $user->team=0;
 
+
+        $team->save();
+        $user->save();
+
+        Session::flash('success-message', 'Narys ištrintas');
+        return Redirect::back();
+    }
+
+    public function changeCaptain($id,$memberid)
+    {
+        $team=Team::find($id);
+        $team->captain = $memberid;
+        $team->save();
+
+        Session::flash('success-message', 'Komandos kapitonas pakeistas');
+        return Redirect::back();
+    }
+
+    public function changeSecret($id){
+
+        $team=Team::find($id);
+        $generatingSecretFailed = true;
+        while($generatingSecretFailed == true) {
+            try {
+                $team->secret = str_random(10);
+                $team->save();
+                $generatingSecretFailed = false;
+            } catch (\Illuminate\Database\QueryException $e) { /// If not unique secret is generated - retry
+                $generatingSecretFailed = true;
+            }
+        }
+        Session::flash('success-message', 'Slaptas kodas buvo pakeistas');
+        return Redirect::back();
+    }
 }
 
