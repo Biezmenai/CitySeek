@@ -31,6 +31,9 @@
                     <p><b>{{$team->name}}</b></p>
                     <p><img src="{{$team->image}}"></p>
                     <p>Dalyvauta varžybų: <b>0</b></p>
+                    @if ($team->captain == Auth::user()->id)
+                        <p>Jūsų komandos slaptas kodas: <b>{{$team->secret}}</b></p>
+                    @endif
                     <hr>
                     <p><a href="/komanda/{{$team->id}}">Eiti į komandos puslapį</a></p>
                 @endif
