@@ -34,8 +34,16 @@ class TeamController extends Controller
         $team->name = Input::get('name');
         $team->captain = Auth::user()->id;
         $team->members_count = 1;
-        $team->secret = str_random(10);
-        $team->save();
+        $generatingSecretFailed = true;
+        while($generatingSecretFailed == true) {
+            try {
+                $team->secret = str_random(10);
+                $team->save();
+                $generatingSecretFailed = false;
+            } catch (\Illuminate\Database\QueryException $e) { /// If not unique secret is generated - retry
+                $generatingSecretFailed = true;
+            }
+        }
         if (Input::hasFile('img'))
         {
             if (Input::file('img')->isValid())

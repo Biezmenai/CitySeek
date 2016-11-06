@@ -16,7 +16,7 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('image');
-            $table->string('secret');
+            $table->string('secret')->unique();
             $table->timestamps();
         });
     }
