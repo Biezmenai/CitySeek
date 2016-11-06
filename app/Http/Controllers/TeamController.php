@@ -31,7 +31,13 @@ class TeamController extends Controller
         }
 
         $team = new Team;
-        $team->name = Input::get('name');
+        try {
+            $team->name = Input::get('name');
+            $team->save();
+        } catch (\Illuminate\Database\QueryException $e) {
+            Session::flash('error-message', 'Komanda tokiu vardu jau yra. Pasirinkite kitą');
+            return redirect()->back();
+        }
         $team->captain = Auth::user()->id;
         $team->members_count = 1;
         $generatingSecretFailed = true;
