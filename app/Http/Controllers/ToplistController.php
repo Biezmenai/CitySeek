@@ -10,7 +10,6 @@ class ToplistController extends Controller
 
     public function watchTops()
     {
-
         $users = User::all()->sortBy('points', SORT_REGULAR, true)->take(5);
 
         $me = Auth::user();

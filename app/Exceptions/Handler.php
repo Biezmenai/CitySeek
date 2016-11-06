@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Session;
 
 class Handler extends ExceptionHandler
 {
@@ -39,6 +40,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return parent::render($request, $e);
+        if($this->isHttpException($e))
+        {
+            Session::flash('error-message', 'Tokio puslapio nėra');
+            return redirect()->back();
+        }
+        else
+        {
+            return parent::render($request, $e);
+        }
     }
 }

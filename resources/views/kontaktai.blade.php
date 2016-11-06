@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html>
-@include('includes.head')
-<body>
-<!-- Wrapper -->
-<div id="wrapper">
-    <!-- Header -->
-    @include('includes.header')
-    <!-- Main -->
-    <section id="main">
-        <h1>Susisiekite su mumis</h1>
-        Su mumis galite susiekti šiuo el. pašto adresu. Pažadame atsakyti į jūsų užklausą per 24 valandas!<br><br>
-        Elektroninis paštas: <strong>cityseekinfo@gmail.com<strong><br>
+@extends('layouts.new')
 
-        <br>
-        @include('includes.navigation')
-    </section>
-    <!-- Footer -->
-    @include('includes.footer')
-</div>
-</body>
-</html>
+@section('title', 'Kontaktai')
+
+@section('content')
+    <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4>Susisiekite su mumis</h4>
+        <p>Su mumis galite susiekti šiuo el. pašto adresu. Pažadame atsakyti į jūsų užklausą per 24 valandas!
+            Elektroninis paštas: cityseekinfo@gmail.com</p>
+    </div>
+@stop

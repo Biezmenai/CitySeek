@@ -1,41 +1,27 @@
-<!DOCTYPE html>
-<html>
-@include('includes.head')
-<body>
-    <!-- Wrapper -->
-    <div id="wrapper">
-        <!-- Header -->
-        @include('includes.header')
-        <!-- Main -->
-        <section id="main">
+@extends('layouts.new')
 
-            <table>
+@section('title', 'Informacija')
+
+@section('content')
+    <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4>Apie mus</h4>
+        <hr class="w3-clear">
+        <table class="w3-table w3-striped">
                 <tr>
-                    <td>ID</td>
-                    <td>Pavadinimas</td>
-                    <td>Aprasymas</td>
-                    <td>Pradzios laikas</td>
-                    <td>Pabaigos laikas</td>
-                    <td>Likes laikas</td>
+                    <th>ID</th>
+                    <th>Pavadinimas</th>
+                    <th>Aprasymas</th>
+                    <th>Pradzios laikas</th>
+                    <th>Pabaigos laikas</th>
+                    <th>Likes laikas</th>
                 </tr>
                 @foreach( $renginys as $id)
                     <tr>
                         <td>{{$id->id}}</td> <td>{{$id->name}}</td> <td>{{$id->aprasymas}}</td>
                         <td>{{$id->pradzios_data}}</td> <td>{{$id->pabaigos_data}}</td> <td>{{$id->likes_laikas}}</td>
                     </tr>
-                @endforeach
-
-            </table>
-
-            <br>
-            @include('includes.navigation')
-        </section>
-
-        <!-- Footer -->
-        @include('includes.footer')
-
+            @endforeach
+        </table>
+        <br>
     </div>
-    @include('includes.scripts')
-
-</body>
-</html>
+@stop

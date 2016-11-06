@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-@include('includes.head')
-<body>
-<!-- Wrapper -->
-<div id="wrapper">
-    <!-- Header -->
-    @include('includes.header')
-    <!-- Main -->
-    <section id="main">
-        <h1>Turnyrinė lentelė</h1>
-        <table>
+@extends('layouts.new')
+
+@section('title', 'Turnyrinė lentelė')
+
+@section('content')
+    <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4>Turnyrinė lentelė</h4>
+        <hr class="w3-clear">
+        <table class="w3-table w3-striped">
             <tr>
                 <td>Vieta</td>
                 <td>Vardas</td>
@@ -21,12 +18,6 @@
                 </tr>
             @endforeach
         </table>
-
         <br>
-        @include('includes.navigation')
-    </section>
-    @include('includes.footer')
-</div>
-@include('includes.scripts')
-</body>
-</html>
+    </div>
+@stop

@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html>
-@include('includes.head')
-<body>
-<!-- Wrapper -->
-<div id="wrapper">
+@extends('layouts.new')
 
-    <!-- Header -->
-    @include('includes.header')
+@section('title', 'Home')
 
-    <!-- Main -->
-    <section id="main">
-        @include('includes.navigation')
-    </section>
+@section('content')
 
-    <!-- Footer -->
-    @include('includes.footer')
-</div>
+    @include('includes.news')
 
-@include('includes.scripts')
-
-</body>
-</html>
+@stop
