@@ -33,6 +33,10 @@
                     </ul>
                     <hr>
                     <h5><b>Renginių valdymas</b></h5>
+                    <ul>
+                        <li><a href="/admin/new-event">Sukurti naują renginį</a></li>
+                        <li><a href="/admin/events">Renginiai</a></li>
+                    </ul>
                     <hr>
                     <h5><b>Užduočių valdymas</b></h5>
                     <hr>
