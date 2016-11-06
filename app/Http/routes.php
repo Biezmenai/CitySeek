@@ -31,8 +31,13 @@ Route::get('/', function () {
 });
 
 Route::get('home', array('as'=>'home', 'uses' => function(){
-    $news = News::orderBy('news.created_at', SORT_DESC, true)->paginate(5);
-    return view('home', compact('news'));
+    $news = News::orderBy('news.created_at', SORT_DESC, true)->paginate(3);
+    $team = Team::where('id', '=', Auth::user()->team)->first();
+    if (Auth::user()) {
+        return view('home', compact('news', 'team'));
+    }
+    else {
+        return view('welcome', compact('news'));    }
 }));
 
 
