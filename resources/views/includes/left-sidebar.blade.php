@@ -5,9 +5,6 @@
         <div class="w3-container">
             <h4 class="w3-center">{{ Auth::user()->name }}</h4>
             <p class="w3-center"><img src="{{ Auth::user()->avatar }}" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
-            <!-- Trigger/Open the Modal -->
-            <button onclick="document.getElementById('id01').style.display='block'"
-                    class="w3-btn">Open Modal</button>
             <hr>
             <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{ Auth::user()->points }}</p>
             <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>

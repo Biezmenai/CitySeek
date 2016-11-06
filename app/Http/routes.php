@@ -133,7 +133,7 @@ Route::get('admin', ['middleware' => 'admin', function(){
 /* News routes */
 Route::get('admin/new-post', ['middleware' => 'admin', 'uses' => 'NewsController@newPost']);
 
-Route::post('admin/new-post/add', 'NewsController@addPost');
+Route::post('admin/new-post/add', ['middleware' => 'admin', 'uses' => 'NewsController@addPost']);
 
 Route::get('admin/edit-posts', ['middleware' => 'admin', 'uses' => 'NewsController@showEditPosts']);
 
@@ -143,4 +143,10 @@ Route::get('admin/edit-posts/edit/{id}', ['middleware' => 'admin', 'uses' => 'Ne
 
 Route::post('admin/edit-posts/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'NewsController@updatePost']);
 
-/* News routes */
+/* Teams routes */
+
+Route::get('admin/teams', ['middleware' => 'admin', 'uses' => 'TeamController@viewTeamList']);
+
+Route::get('admin/teams/edit/{id}', ['middleware' => 'admin', 'uses' => 'TeamController@editTeamView']);
+
+Route::get('admin/teams/delete/{id}', ['middleware' => 'admin', 'uses' => 'TeamController@deleteTeam']);

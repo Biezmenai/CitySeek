@@ -39,6 +39,9 @@
                     <h5><b>Klientų valdymas</b></h5>
                     <hr>
                     <h5><b>Komandų valdymas</b></h5>
+                    <ul>
+                        <li><a href="/admin/teams">Komandų sąrašas</a></li>
+                    </ul>
                     <hr>
                 </div>
             </div>

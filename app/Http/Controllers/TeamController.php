@@ -60,14 +60,14 @@ class TeamController extends Controller
                     $constraint->aspectRatio();
                 });
                 $img->save("uploads/team-logo/".$team->id);
-                $team->image = "uploads/team-logo/".$team->id;
+                $team->image = "/uploads/team-logo/".$team->id;
             }
             else {
                 Session::flash('error-message', 'Klaida įkeliant nuotrauką');
                 return redirect()->back();
             }
         } else {
-            $team->image = "images/thumbs/default-team.png";
+            $team->image = "/images/thumbs/default-team.png";
         }
         $team->save();
 
@@ -109,8 +109,41 @@ class TeamController extends Controller
     {
         $team = Team::find($id);
 
-        return $team;
+        return view('komanda', compact('team'));
 
     }
+
+    public function viewTeamList()
+    {
+        $teams = Team::with('members')->get();
+
+        return view('admin-views/teams', compact('teams'));
+    }
+
+    public function editTeamView($id)
+    {
+        $teams = Team::with('members')->get();
+
+        return view('admin-views/team-edit', compact('teams'));
+    }
+
+    public function editTeam()
+    {
+        /*$teams = Team::with('members')->get();
+
+        return view('admin-views/team-edit', compact('teams'));*/
+    }
+
+    public function deleteTeam($id)
+    {
+        $team= Team::find($id);
+
+        $team->delete();
+
+        Session::flash('success-message', 'Komanda ištrinta');
+        return Redirect::back();
+    }
+
+
 }
 

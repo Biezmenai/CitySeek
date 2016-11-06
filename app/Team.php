@@ -14,6 +14,11 @@ class Team extends Model
      */
     protected $table = 'teams';
 
+    public function members()
+    {
+        return $this->hasMany('App\User', 'team', 'id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
