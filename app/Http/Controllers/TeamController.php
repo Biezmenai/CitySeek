@@ -84,12 +84,19 @@ class TeamController extends Controller
         $team = Team::where('secret', '=', Input::get('secret'))->first();
 
         if (!empty($team)) {
-            $user = User::find(Auth::user()->id);
-            $user->team = $team->id;
-            $user->save();
+            if ($team->members_count < 5) {
+                $user = User::find(Auth::user()->id);
+                $user->team = $team->id;
+                $user->save();
+                $team->members_count++;
+                $team->save();
 
-            Session::flash('success-message', "Prisijungėte prie komandos $team->name");
-            return redirect()->back();
+                Session::flash('success-message', "Prisijungėte prie komandos $team->name");
+                return redirect()->back();
+            } else {
+                Session::flash('error-message', "Komandoje jau yra 5 nariai");
+                return redirect()->back();
+            }
         }
         else {
             Session::flash('error-message', "Tokios komandos nėra");
