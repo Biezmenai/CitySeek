@@ -165,6 +165,8 @@ Route::get('/admin/teams/edit/{teamId}/remove-member/{memberId}', ['middleware' 
 
 Route::get('/admin/teams/edit/{id}/regenerate-secret', ['middleware' => 'admin', 'uses' => 'TeamController@changeSecret']);
 
+Route::post('/admin/teams/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'TeamController@updateTeam']);
+
 
 
 /* Event routes */

@@ -23,12 +23,12 @@
 
                 @endforeach
             </ul>
-            <label>Nuotrauka/logotipas</label>
+            <label>Nuotrauka/logotipas</label> (Nedidesnė nei 10MB dydžio, bei 200x200px rezoliucijos)
             <div class="image-upload w3-margin-bottom">
-                <label title="Change picture" onmouseover="style='cursor:pointer'" for="file-input">
+                <label title="Change picture" onmouseover="style='cursor:pointer'" for="img">
                     <img src="{{$team->image}}"/>
                 </label>
-                <input onchange="style='display: block;'" id="file-input" type="file" name="img" id="img"/>
+                <input onchange="style='display: block;'" type="file" name="img" id="img"/>
             </div>
             <label>Slaptas kodas</label><br>
             {{$team->secret}} <a onclick="return confirm('Ar tikrai pakeisti komandos kodą?')" href="/admin/teams/edit/{{$team->id}}/regenerate-secret"><i title="Generate new secret" class="fa fa-refresh" aria-hidden="true"></i></a>
