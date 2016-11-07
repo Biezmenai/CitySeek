@@ -1,12 +1,12 @@
 <?php
 
 namespace App;
-
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -18,6 +18,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var string
      */
     protected $table = 'users';
+
+    public function rank()
+    {
+        $ranks = Rank::all();
+        foreach ($ranks as $rank) {
+            if ($this->rank_score <= $rank['score']) {
+                return $rank;
+            }
+        }
+    }
 
     /**
      * The attributes that are mass assignable.

@@ -4,9 +4,18 @@
     <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
             <h4 class="w3-center">{{ Auth::user()->name }}</h4>
-            <p class="w3-center"><img src="{{ Auth::user()->avatar }}" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+            <div class="w3-display-container w3-center">
+                <img src="{{ Auth::user()->avatar }}" class="w3-circle">
+                <div class="w3-display-bottommiddle w3-container" style="transform: translate(-90%,20%);"><img src="{{ Auth::user()->rank()->badge }}" style="height:50px;width:50px; left: 50px"/></div>
+            </div>
+            <p class="w3-center">{{ Auth::user()->rank()->rank }}</p>
             <hr>
-            <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{ Auth::user()->points }}</p>
+            <p class="w3-tooltip"><i class="fa fa-trophy fa-fw w3-margin-right w3-text-theme"></i>Rango taškai: <b>{{ Auth::user()->rank_score }}</b>
+                <span style="position:absolute;left:20px;top:30px" class="w3-text w3-tag w3-animate-opacity">
+                    Paprasta informacija apie rankingą:<br>
+                dasdasdasdasd
+                </span>
+            </p>
             <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
             <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
         </div>
@@ -20,7 +29,7 @@
     <div class="w3-card-2 w3-round">
         <div class="w3-accordion w3-white">
             <!-- Mano komanda -->
-            <button onclick="myFunction('my_team')" class="w3-btn-block w3-theme w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Mano komanda</button>
+            <button onclick="myFunction('my_team')" class="w3-btn-block w3-theme w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>Komanda</button>
             <div id="my_team" class="w3-accordion-content w3-container w3-center">
                 @if (Auth::user()->team == 0)
                     <p>Jūs neturite komandos!</p>
@@ -39,7 +48,7 @@
                 @endif
             </div>
 
-            <button onclick="myFunction('Demo2')" class="w3-btn-block w3-theme w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> Mano renginiai</button>
+            <button onclick="myFunction('Demo2')" class="w3-btn-block w3-theme w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i>Renginiai</button>
             <div id="Demo2" class="w3-accordion-content w3-container">
                 <p>Some other text..</p>
             </div>
