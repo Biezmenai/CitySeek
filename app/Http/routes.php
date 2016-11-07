@@ -123,11 +123,15 @@ Route::post('join-team', ['middleware' => 'auth', 'uses' => 'TeamController@join
 
 Route::get('komanda/{id}', ['middleware' => ['auth', 'team'], 'uses' => 'TeamController@viewTeam']);
 
-Route::get('/komanda/{id}/deletemember/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@deleteMember']);
+Route::get('/komanda/{id}/trinti-nari/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@deleteMember']);
 
-Route::get('/komanda/{id}/changecaptain/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeCaptain']);
+Route::get('/komanda/{id}/keisti-kapitona/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeCaptain']);
 
-Route::get('komanda/{id}/change-secret', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeSecret']);
+Route::get('komanda/{id}/keisti-koda', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeSecret']);
+
+Route::post('komanda/{id}/keisti-logo', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeLogo']);
+
+
 
 /*
 |--------------------------------------------------------------------------
