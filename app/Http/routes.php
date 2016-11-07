@@ -126,7 +126,7 @@ Route::get('/komanda/{id}/deletemember/{memberid}', ['middleware' => 'auth', 'mi
 
 Route::get('/komanda/{id}/changecaptain/{memberid}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@changeCaptain']);
 
-Route::get('komanda/{id}/change-secret', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@changeSecret']);
+Route::get('komanda/{id}/change-secret', ['middleware' => 'auth', 'middleware' => 'team', 'middleware' => 'captain', 'uses' => 'TeamController@changeSecret']);
 
 
 /*

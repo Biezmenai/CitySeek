@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Auth;
 use Session;
+use App\Team;
 
 class TeamCaptain
 {
