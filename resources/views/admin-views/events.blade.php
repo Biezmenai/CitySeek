@@ -31,6 +31,6 @@
                     <td><a onclick="return confirm('Ar tikrai ištrinti šį įrašą?')" href="events/delete/{{$event->id}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                 </tr>
             @endforeach
-            <table>
+            </table>
     </div>
 @stop

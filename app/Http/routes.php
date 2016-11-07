@@ -181,6 +181,8 @@ Route::get('admin/events/edit/{id}', ['middleware' => 'admin', 'uses' => 'EventC
 
 Route::post('admin/new-event/add-event', ['middleware' => 'admin', 'uses' => 'EventController@createNewEventSubmit']);
 
-Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'EventController@editEventSubmit']);
+Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'auth', 'uses' => 'EventController@editEventSubmit']);
 
-Route::get('/events', ['middleware' => 'admin', 'uses' => 'EventController@upcomingEventsListView']);
+Route::get('/events', ['middleware' => 'auth', 'uses' => 'EventController@upcomingEventsListView']);
+
+Route::get('events/registration/{id}', ['middleware' => 'auth', 'uses' => 'EventController@joinOngoingEvent']);

@@ -13,6 +13,8 @@
                 <th>Tipas</th>
                 <th>Pradžios data</th>
                 <th>Pabaigos data</th>
+                <th></th>
+                <th></th>
             </tr>
             @foreach ($events as $event)
                 <tr>
@@ -21,6 +23,7 @@
                     <td>{{$event->eventType}}</td>
                     <td>{{$event->start}}</td>
                     <td>{{$event->end}}</td>
+                    <td><a href="events/registration/{{$event->id}}">Registruotis</a></td>
                 </tr>
             @endforeach
             </table>
