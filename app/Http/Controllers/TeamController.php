@@ -30,79 +30,90 @@ class TeamController extends Controller
             return redirect()->back();
         }
 
-        $team = new Team;
-        try {
-            $team->name = Input::get('name');
-            $team->save();
-        } catch (\Illuminate\Database\QueryException $e) {
-            Session::flash('error-message', 'Komanda tokiu vardu jau yra. Pasirinkite kitą');
+        if (Auth::user()->team != 0) {
+            Session::flash('error-message', "Jūs jau priklausote komandai");
             return redirect()->back();
-        }
-        $team->captain = Auth::user()->id;
-        $team->members_count = 1;
-        $generatingSecretFailed = true;
-        while($generatingSecretFailed == true) {
+        } else {
+            $team = new Team;
             try {
-                $team->secret = str_random(10);
+                $team->name = Input::get('name');
                 $team->save();
-                $generatingSecretFailed = false;
-            } catch (\Illuminate\Database\QueryException $e) { /// If not unique secret is generated - retry
-                $generatingSecretFailed = true;
-            }
-        }
-        if (Input::hasFile('img'))
-        {
-            if (Input::file('img')->isValid())
-            {
-                Input::file('img')->move("uploads/team-logo", $team->id);
-                $img = Image::make("uploads/team-logo/".$team->id);
-                $img->resize(106, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-                $img->save("uploads/team-logo/".$team->id);
-                $team->image = "/uploads/team-logo/".$team->id;
-            }
-            else {
-                Session::flash('error-message', 'Klaida įkeliant nuotrauką');
+            } catch (\Illuminate\Database\QueryException $e) {
+                Session::flash('error-message', 'Komanda tokiu vardu jau yra. Pasirinkite kitą');
                 return redirect()->back();
             }
-        } else {
-            $team->image = "/images/thumbs/default-team.png";
+            $team->captain = Auth::user()->id;
+            $team->members_count = 1;
+            $generatingSecretFailed = true;
+            while($generatingSecretFailed == true) {
+                try {
+                    $team->secret = str_random(10);
+                    $team->save();
+                    $generatingSecretFailed = false;
+                } catch (\Illuminate\Database\QueryException $e) { /// If not unique secret is generated - retry
+                    $generatingSecretFailed = true;
+                }
+            }
+            if (Input::hasFile('img'))
+            {
+                if (Input::file('img')->isValid())
+                {
+                    Input::file('img')->move("uploads/team-logo", $team->id);
+                    $img = Image::make("uploads/team-logo/".$team->id);
+                    $img->resize(106, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    $img->save("uploads/team-logo/".$team->id);
+                    $team->image = "/uploads/team-logo/".$team->id;
+                }
+                else {
+                    Session::flash('error-message', 'Klaida įkeliant nuotrauką');
+                    return redirect()->back();
+                }
+            } else {
+                $team->image = "/images/thumbs/default-team.png";
+            }
+            $team->save();
+
+            $user = User::find(Auth::user()->id);
+            $user->team = $team->id;
+            $user->save();
+
+            Session::flash('success-message', 'Sėkmingai sukūrėte komandą');
+            return redirect()->back();
         }
-        $team->save();
-
-        $user = User::find(Auth::user()->id);
-        $user->team = $team->id;
-        $user->save();
-
-        Session::flash('success-message', 'Sėkmingai sukūrėte komandą');
-        return redirect()->back();
     }
 
     public function joinTeam()
     {
         $team = Team::where('secret', '=', Input::get('secret'))->first();
 
-        if (!empty($team)) {
-            if ($team->members_count < 5) {
-                $user = User::find(Auth::user()->id);
-                $user->team = $team->id;
-                $user->save();
-                $team->members_count++;
-                $team->save();
-
-                Session::flash('success-message', "Prisijungėte prie komandos $team->name");
-                return redirect()->back();
-            } else {
-                Session::flash('error-message', "Komandoje jau yra 5 nariai");
-                return redirect()->back();
-            }
-        }
-        else {
-            Session::flash('error-message', "Tokios komandos nėra");
+        if (Auth::user()->team != 0) {
+            Session::flash('error-message', "Jūs jau priklausote komandai");
             return redirect()->back();
         }
+        else {
+            if (!empty($team)) {
+                if ($team->members_count < 5) {
+                    $user = User::find(Auth::user()->id);
+                    $user->team = $team->id;
+                    $user->save();
+                    $team->members_count++;
+                    $team->save();
 
+                    Session::flash('success-message', "Prisijungėte prie komandos $team->name");
+                    return redirect()->back();
+                } else {
+                    Session::flash('error-message', "Komandoje jau yra 5 nariai");
+                    return redirect()->back();
+                }
+            }
+            else {
+                Session::flash('error-message', "Tokios komandos nėra");
+                return redirect()->back();
+            }
+
+        }
     }
 
     public function viewTeam($id)

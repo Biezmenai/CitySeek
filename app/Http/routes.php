@@ -118,16 +118,16 @@ Route::get('/apie-mus', function(){
 
 /* Team routes */
 Route::post('create-team', ['middleware' => 'auth', 'uses' => 'TeamController@createNewTeam']);
+
 Route::post('join-team', ['middleware' => 'auth', 'uses' => 'TeamController@joinTeam']);
 
-Route::get('komanda/{id}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@viewTeam']);
+Route::get('komanda/{id}', ['middleware' => ['auth', 'team'], 'uses' => 'TeamController@viewTeam']);
 
-Route::get('/komanda/{id}/deletemember/{memberid}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@deleteMember']);
+Route::get('/komanda/{id}/deletemember/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@deleteMember']);
 
-Route::get('/komanda/{id}/changecaptain/{memberid}', ['middleware' => 'auth', 'middleware' => 'team', 'uses' => 'TeamController@changeCaptain']);
+Route::get('/komanda/{id}/changecaptain/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeCaptain']);
 
-Route::get('komanda/{id}/change-secret', ['middleware' => 'auth', 'middleware' => 'team', 'middleware' => 'captain', 'uses' => 'TeamController@changeSecret']);
-
+Route::get('komanda/{id}/change-secret', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeSecret']);
 
 /*
 |--------------------------------------------------------------------------
