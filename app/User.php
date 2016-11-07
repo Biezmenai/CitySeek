@@ -23,7 +23,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         $ranks = Rank::all();
         foreach ($ranks as $rank) {
-            if ($this->rank_score <= $rank['score']) {
+            if ($this->rank_score >= $rank['start_score'] && $this->rank_score <= $rank['end_score'] ) {
                 return $rank;
             }
         }

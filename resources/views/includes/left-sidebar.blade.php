@@ -6,7 +6,7 @@
             <h4 class="w3-center">{{ Auth::user()->name }}</h4>
             <div class="w3-display-container w3-center">
                 <img src="{{ Auth::user()->avatar }}" class="w3-circle">
-                <div class="w3-display-bottommiddle w3-container" style="transform: translate(-90%,20%);"><img src="{{ Auth::user()->rank()->badge }}" style="height:50px;width:50px; left: 50px"/></div>
+                <div class="w3-display-bottommiddle w3-container" style="transform: translate(0%,0%);"><img src="/images/thumbs/ranks/{{ Auth::user()->rank()->badge }}.png" style="width: {{ Auth::user()->rank()->size }}px"/></div>
             </div>
             <p class="w3-center">{{ Auth::user()->rank()->rank }}</p>
             <hr>
