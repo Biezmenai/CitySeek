@@ -41,6 +41,12 @@
                     <h5><b>Užduočių valdymas</b></h5>
                     <hr>
                     <h5><b>Klientų valdymas</b></h5>
+                    <ul>
+
+                    </ul>
+                    <ul>
+                        <li><a href="/admin/ranks">Rangų valdymas</a></li>
+                    </ul>
                     <hr>
                     <h5><b>Komandų valdymas</b></h5>
                     <ul>
