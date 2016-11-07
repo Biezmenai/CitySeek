@@ -9,6 +9,7 @@ use Input;
 use Session;
 use Redirect;
 use App\Event;
+use App\Team;
 
 class EventController extends Controller
 {
@@ -73,6 +74,21 @@ class EventController extends Controller
 
         Session::flash('success-message', 'Renginys sėkmingai paredaguotas');
         return Redirect::back();
+
+    }
+
+    /* Funkcijos skirtos useriams */
+    /* ---------------------------------------------------------------------------------------- */
+    public function createNewViewForUser()
+    {
+        return view('events');
+    }
+
+    public function upcomingEventsListView()
+    {
+        $events= Event::with('user')->get();
+        $team = Team::where('id', '=', Auth::user()->team)->first();
+        return view('events', compact('events', 'team'));
 
     }
 

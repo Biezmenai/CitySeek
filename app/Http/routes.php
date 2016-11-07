@@ -182,3 +182,5 @@ Route::get('admin/events/edit/{id}', ['middleware' => 'admin', 'uses' => 'EventC
 Route::post('admin/new-event/add-event', ['middleware' => 'admin', 'uses' => 'EventController@createNewEventSubmit']);
 
 Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'EventController@editEventSubmit']);
+
+Route::get('/events', ['middleware' => 'admin', 'uses' => 'EventController@upcomingEventsListView']);
