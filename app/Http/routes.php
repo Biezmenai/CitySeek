@@ -185,16 +185,6 @@ Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'admin', 'uses' =
 
 Route::get('/events', ['middleware' => 'admin', 'uses' => 'EventController@upcomingEventsListView']);
 
-/* Ranks routes */
-
-Route::get('admin/ranks', ['middleware' => 'admin', 'uses' => 'RanksController@ranksView']);
-
-Route::get('admin/ranks/delete/{id}', ['middleware' => 'admin', 'uses' => 'RanksController@deleteRank']);
-
-Route::get('admin/ranks/edit/{id}', ['middleware' => 'admin', 'uses' => 'RanksController@editRankView']);
-
-Route::post('admin/ranks/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'RanksController@editRankSubmit']);
-
 
 
 
