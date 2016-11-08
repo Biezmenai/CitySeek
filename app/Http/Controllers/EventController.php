@@ -10,15 +10,16 @@ use Session;
 use Redirect;
 use App\Event;
 use App\Team;
+use App\Registration;
+use App\User;
 
 class EventController extends Controller
 {
 
     public function createNewView()
     {
-        //$news = News::with('user')->get()->sortBy('created_at', SORT_DESC, true);
 
-       return view('admin-views/new-event');
+        return view('admin-views/new-event');
 
     }
 
@@ -40,13 +41,13 @@ class EventController extends Controller
 
     public function eventsListView()
     {
-        $events= Event::with('user')->get();
+        $events = Event::with('user')->get();
         return view('admin-views/events', compact('events'));
     }
 
     public function deleteEvent($id)
     {
-        $event= Event::find($id);
+        $event = Event::find($id);
 
         $event->delete();
 
@@ -86,11 +87,35 @@ class EventController extends Controller
 
     public function upcomingEventsListView()
     {
-        $events= Event::with('user')->get();
+        $events = Event::with('user')->get();
         $team = Team::where('id', '=', Auth::user()->team)->first();
         return view('events', compact('events', 'team'));
 
     }
+
+    public function joinOngoingEvent($id)
+    {
+        /*Reikia pildyti ir padaryt, kad iseitu useriui prisiregistruoti prie renginio*/
+
+        $event = Event::find($id);
+        $user = (Auth::user()->id);
+
+              if(1>0) // reikia patikrinimo ar useris dar neprisiregistraves prie renginio
+               {
+
+                   $registration = new Registration;
+                   $registration->event_id = $id;
+                   $registration->user_id = $user;
+                   //$registration->team_id = Auth::team()->id;
+                   $registration->save();
+
+                   Session::flash('success-message', 'Prisiregistruota sėkmingai');
+                   return Redirect::back();
+
+               }
+           }
+
+
 
 }
 
