@@ -39,6 +39,9 @@
                     </ul>
                     <hr>
                     <h5><b>Užduočių valdymas</b></h5>
+                    <ul>
+                        <li><a href="/admin/tasks">Užduotys</a></li>
+                    </ul>
                     <hr>
                     <h5><b>Klientų valdymas</b></h5>
                     <ul>
