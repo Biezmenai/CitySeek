@@ -20,7 +20,7 @@
                <a href="#" class="w3-padding-large w3-hover-white" title="Mano paskyra"><img src="{{ Auth::user()->avatar }}" class="w3-circle" style="height:25px;width:25px" alt="Avatar"><span class="w3-medium"> {{ Auth::user()->name }}</span></a>
                <div class="w3-dropdown-content w3-white w3-card-4">
                    @if (Auth::user()->accesslevel > 0)
-                   <a href="/admin"><i class="fa fa-cogs"></i> Admin</a>
+                       <a href="/admin"><i class="fa fa-cogs"></i> Admin</a>
                    @endif
                    <a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush"></i> Keisti spalvą</a>
                    <a href="/logout"><i class="fa fa-sign-out"></i> Atsijungti</a>
@@ -35,13 +35,16 @@
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
     <ul class="w3-navbar w3-left-align w3-large w3-theme">
-        <li><a class="w3-padding-large" href="#">Link 1</a></li>
-        <li><a class="w3-padding-large" href="#">Link 2</a></li>
-        <li><a class="w3-padding-large" href="#">Link 3</a></li>
+        <li>
+            @if (Auth::user() && Auth::user()->accesslevel > 0)
+                <a href="/admin"><i class="fa fa-cogs"></i> Admin</a>
+            @endif
+        </li>
+        <li><a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush"></i> Keisti spalvą</a></li>
         @if (Auth::user())
-            <li><a class="w3-padding-large" href="#">My Profile</a></li>
+            <li><a href="/logout"><i class="fa fa-sign-out"></i> Atsijungti</a></li>
         @else
-            <li><a class="w3-padding-large" href="/auth/facebook">Prisijunkite</a></li>
+            <li><a class="w3-padding-large" href="/auth/facebook"><i class="fa fa-sign-in"></i> Prisijunkite</a></li>
         @endif
     </ul>
 </div>
