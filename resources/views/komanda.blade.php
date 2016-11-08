@@ -82,7 +82,7 @@
                 <div class="w3-center w3-margin">
                     <label> Komandos slaptas kodas yra: </label>
                     <b>{{$team->secret}}</b>
-                    <a onclick="return confirm('Ar tikrai pakeisti komandos kodą?')" href="/komanda/{{$team->id}}/keisti-koda"><i title="Generuoti naują kodą" class="fa fa-refresh w3-margin-left" aria-hidden="true"></i></a>
+                    <a onclick="return confirm('Ar tikrai pakeisti komandos kodą?')" href="/komanda/{{$team->id}}/keisti-koda"><i title="Generuoti naują kodą" class="fa fa-refresh fa-spin w3-margin-left" aria-hidden="true"></i></a>
                 </div>
             @endif
         </div>

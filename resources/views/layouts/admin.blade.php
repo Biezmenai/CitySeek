@@ -19,13 +19,17 @@
     <!-- The Grid -->
     <div class="w3-row">
         <!-- Left Column -->
-        <div class="w3-col s3">
+        <div class="w3-col m3">
             <div class="w3-card-2 w3-round w3-white">
-                <div class="w3-container">
+                <button onclick="myFunction('menu')" class="w3-btn-block w3-center w3-white"><i class="fa fa-list-ul fa-fw w3-margin-right"></i>Meniu</button>
+
+                <div id="menu" class="w3-container w3-accordion-content w3-show">
                     <h4 class="w3-center">{{ Auth::user()->name }}</h4>
                     <p class="w3-center"><img src="{{ Auth::user()->avatar }}" class="w3-circle" style="height:50px;width:50px" alt="Avatar"></p>
                     <h5 class="w3-center">Administratorius</h5>
+                    <a class="w3-center" href="/">Eiti į puslapį</a>
                     <hr>
+
                     <h5><b>Naujienų valdymas</b></h5>
                     <ul>
                         <li><a href="/admin/new-post">Pridėti naują</a></li>
@@ -60,7 +64,7 @@
             </div>
         </div>
     <!-- Middle Column -->
-        <div class="w3-col s9">
+        <div id="mid-column" class="w3-col m9">
             <!-- Pranesimai -->
             @if (Session::has('success-message'))
                 <div class="w3-panel w3-green w3-margin">
@@ -72,7 +76,7 @@
                     <h3>Klaida!</h3>
                     <p>{{Session::get('error-message')}}</p>
                 </div>
-        @endif
+             @endif
         @yield('content')
         <!-- End Middle Column -->
         </div>
@@ -84,3 +88,24 @@
 
 </body>
 </html>
+
+
+<script>
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace("w3-show", "");
+        }
+    }
+
+    (function($) {
+        var $window = $(window);
+            if ($window.width() < 600) {
+                return $('#menu').removeClass('w3-show');
+            } else {
+                return $('#menu').addClass('w3-show');
+            }
+    })(jQuery);
+</script>

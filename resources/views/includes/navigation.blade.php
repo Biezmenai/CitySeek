@@ -19,7 +19,9 @@
            <li class="w3-hide-small w3-right w3-dropdown-hover">
                <a href="#" class="w3-padding-large w3-hover-white" title="Mano paskyra"><img src="{{ Auth::user()->avatar }}" class="w3-circle" style="height:25px;width:25px" alt="Avatar"><span class="w3-medium"> {{ Auth::user()->name }}</span></a>
                <div class="w3-dropdown-content w3-white w3-card-4">
-                   <a href="#">-</a>
+                   @if (Auth::user()->accesslevel > 0)
+                   <a href="/admin"><i class="fa fa-cogs"></i> Admin</a>
+                   @endif
                    <a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush"></i> Keisti spalvą</a>
                    <a href="/logout"><i class="fa fa-sign-out"></i> Atsijungti</a>
                </div>

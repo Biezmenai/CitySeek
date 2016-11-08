@@ -12,7 +12,7 @@
             Aprašymas: <textarea class="w3-input" type="text" name="about" id="about">{{$event->about}}</textarea>
             Pradžios data: <input class="w3-input" type="datetime" name="start" id="start" value="{{$event->start}}">
             Pabaigos data: <input class="w3-input" type="datetime" name="end" id="end" value="{{$event->end}}">
-            Rūšis: <select name="eventType" selected="{{$event->eventType}}">
+            Rūšis: <select class="w3-select" name="eventType" selected="{{$event->eventType}}">
                 @if($event->eventType=="one")
                     {
                          <option value="one"selected="selected">Renginys vienam asmeniui</option>
@@ -25,7 +25,7 @@
                 }
             @endif
             </select><br>
-            <input class="w3-btn" type="submit" value="Atnaujinti" name="submit">
+            <input class="w3-btn w3-margin-top" type="submit" value="Atnaujinti" name="submit">
         </form>
         <br>
     </div>
