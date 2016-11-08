@@ -132,6 +132,16 @@ Route::get('komanda/{id}/keisti-koda', ['middleware' => ['auth', 'team','captain
 Route::post('komanda/{id}/keisti-logo', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeLogo']);
 
 
+/* Event routes */
+Route::get('/renginiai', ['middleware' => 'admin', 'uses' => 'EventController@upcomingEventsListView']);
+
+Route::get('/renginiai/registracija/{id}', ['middleware' => 'auth', 'uses' => 'EventController@joinOngoingEvent']);
+
+Route::get('/renginiai/komandos-registracija/{id}/{eventId}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'EventController@joinOngoingEventTeam']);
+
+Route::get('/renginiai/issiregistravimas/{eventId}', ['middleware' => 'auth', 'uses' => 'EventController@unJoinOngoingEvent']);
+
+Route::get('/renginiai/issiregistravimas/{id}/{eventId}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'EventController@unJoinOngoingTeamEvent']);
 
 /*
 |--------------------------------------------------------------------------
@@ -187,7 +197,6 @@ Route::post('admin/new-event/add-event', ['middleware' => 'admin', 'uses' => 'Ev
 
 Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'EventController@editEventSubmit']);
 
-Route::get('/events', ['middleware' => 'admin', 'uses' => 'EventController@upcomingEventsListView']);
 
 /* Ranks routes */
 

@@ -89,32 +89,100 @@ class EventController extends Controller
     {
         $events = Event::with('user')->get();
         $team = Team::where('id', '=', Auth::user()->team)->first();
-        return view('events', compact('events', 'team'));
+        foreach($events as $key=>$event) {
+            $ifRegistered[$key]= Registration::where("user_id", "=", Auth::user()->id)->where("event_id", "=", $event["id"])->count();
+            $ifRegisteredTeam[$key]= Registration::where("team_id", "=", $team->id)->where("event_id", "=", $event["id"])->count();
+        }
+            return view('events', compact('events', 'team', 'ifRegistered', 'ifRegisteredTeam'));
+
 
     }
 
     public function joinOngoingEvent($id)
+{
+
+    $event = Event::find($id);
+    $user = (Auth::user()->id);
+    if (($event["eventType"])== "one")  {
+        if ((Registration::where("user_id", "=", $user)->where("event_id", "=", $event["id"])->count()) == 0) {
+
+            $registration = new Registration;
+            $registration->event_id = $id;
+            $registration->user_id = $user;
+            $registration->save();
+
+            Session::flash('success-message', 'Prisiregistruota sėkmingai');
+            return Redirect::back();
+
+        } else {
+            Session::flash('error-message', 'Jūs jau prisiregistravęs');
+            return Redirect::back();
+        }
+    }
+    else
     {
-        /*Reikia pildyti ir padaryt, kad iseitu useriui prisiregistruoti prie renginio*/
+        Session::flash('error-message', 'Renginys tik komandoms');
+        return Redirect::back();
+    }
+}
 
-        $event = Event::find($id);
-        $user = (Auth::user()->id);
+    public function joinOngoingEventTeam($id,$eventId)
+    {
 
-              if(1>0) // reikia patikrinimo ar useris dar neprisiregistraves prie renginio
-               {
+        $event = Event::find($eventId);
+        if (($event["eventType"])== "team")  {
+            if ((Registration::where("team_id", "=", $id)->where("event_id", "=", $event["id"])->count()) == 0) {
 
-                   $registration = new Registration;
-                   $registration->event_id = $id;
-                   $registration->user_id = $user;
-                   //$registration->team_id = Auth::team()->id;
-                   $registration->save();
+                $registration = new Registration;
+                $registration->event_id = $eventId;
+                $registration->team_id = $id;
+                $registration->save();
 
-                   Session::flash('success-message', 'Prisiregistruota sėkmingai');
-                   return Redirect::back();
+                Session::flash('success-message', 'Komanda prisiregistruota sėkmingai');
+                return Redirect::back();
 
-               }
-           }
+            } else {
+                Session::flash('error-message', 'Jūsų komanda jau prisiregistravusi');
+                return Redirect::back();
+            }
+        }
+        else
+        {
+            Session::flash('error-message', 'Renginys tik vienam žmogui');
+            return Redirect::back();
+        }
+    }
 
+    /* Funkcija skirta issiregistruoti is renginio */
+
+    public function unJoinOngoingEvent($eventId)
+    {
+        $user = Auth::user()->id;
+        $registration = Registration::where("user_id", "=", $user)->where("event_id", "=", $eventId)->get();
+        //return $registration;
+        $reg = Registration::find($registration[0]->id);
+
+        $reg->delete();
+
+        Session::flash('success-message', 'Sėkmingai išssiregistravote!');
+        return Redirect::back();
+
+    }
+
+
+    public function unJoinOngoingTeamEvent($id, $eventId)
+    {
+        $user = Auth::user()->id;
+        $registration = Registration::where("team_id", "=", $id)->where("event_id", "=", $eventId)->get();
+        //return $registration;
+        $reg = Registration::find($registration[0]->id);
+
+        $reg->delete();
+
+        Session::flash('success-message', 'Sėkmingai išssiregistravote komandą!');
+        return Redirect::back();
+
+    }
 
 
 }

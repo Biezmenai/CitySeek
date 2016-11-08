@@ -7,7 +7,7 @@
             <p><strong>Holiday</strong></p>
             <p>Friday 15:00</p>
             <p><button class="w3-btn w3-btn-block w3-theme-l4">Informacija apie renginį</button></p>
-            <p><a href="/events" class="w3-btn w3-btn-block w3-theme-l4">Daugiau renginių</a></p>
+            <p><a href="/renginiai" class="w3-btn w3-btn-block w3-theme-l4">Daugiau renginių</a></p>
         </div>
     </div>
     <br>
