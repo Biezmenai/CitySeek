@@ -268,5 +268,44 @@ class TeamController extends Controller
         Session::flash('success-message', 'Komandos informacija atnaujinta');
         return Redirect::back();
     }
+
+    public function changeLogo($id)
+    {
+        $team= Team::find($id);
+
+        $validator = Validator::make(Input::all(),
+            [
+                'img' => 'mimes:jpeg,bmp,png,jpg'
+            ]
+        );
+
+        if ($validator->fails())
+        {
+            Session::flash('error-message', 'Įkelta ne nuotrauka');
+            return redirect()->back();
+        }
+
+        if (Input::hasFile('img'))
+        {
+            if (Input::file('img')->isValid())
+            {
+                Input::file('img')->move("uploads/team-logo", $team->id);
+                $img = Image::make("uploads/team-logo/".$team->id);
+                $img->resize(106, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save("uploads/team-logo/".$team->id);
+                $team->image = "/uploads/team-logo/".$team->id;
+                $team->save();
+            }
+            else {
+                Session::flash('error-message', 'Klaida įkeliant nuotrauką');
+                return redirect()->back();
+            }
+        }
+
+        Session::flash('success-message', 'Logotipas atnaujintas');
+        return Redirect::back();
+    }
 }
 

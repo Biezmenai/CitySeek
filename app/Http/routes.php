@@ -123,11 +123,15 @@ Route::post('join-team', ['middleware' => 'auth', 'uses' => 'TeamController@join
 
 Route::get('komanda/{id}', ['middleware' => ['auth', 'team'], 'uses' => 'TeamController@viewTeam']);
 
-Route::get('/komanda/{id}/deletemember/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@deleteMember']);
+Route::get('/komanda/{id}/trinti-nari/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@deleteMember']);
 
-Route::get('/komanda/{id}/changecaptain/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeCaptain']);
+Route::get('/komanda/{id}/keisti-kapitona/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeCaptain']);
 
-Route::get('komanda/{id}/change-secret', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeSecret']);
+Route::get('komanda/{id}/keisti-koda', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeSecret']);
+
+Route::post('komanda/{id}/keisti-logo', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeLogo']);
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -181,8 +185,21 @@ Route::get('admin/events/edit/{id}', ['middleware' => 'admin', 'uses' => 'EventC
 
 Route::post('admin/new-event/add-event', ['middleware' => 'admin', 'uses' => 'EventController@createNewEventSubmit']);
 
-Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'auth', 'uses' => 'EventController@editEventSubmit']);
+Route::post('/admin/events/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'EventController@editEventSubmit']);
 
 Route::get('/events', ['middleware' => 'auth', 'uses' => 'EventController@upcomingEventsListView']);
 
-Route::get('events/registration/{id}', ['middleware' => 'auth', 'uses' => 'EventController@joinOngoingEvent']);
+/* Ranks routes */
+
+Route::get('admin/ranks', ['middleware' => 'admin', 'uses' => 'RanksController@ranksView']);
+
+Route::get('admin/ranks/delete/{id}', ['middleware' => 'admin', 'uses' => 'RanksController@deleteRank']);
+
+Route::get('admin/ranks/edit/{id}', ['middleware' => 'admin', 'uses' => 'RanksController@editRankView']);
+
+Route::post('admin/ranks/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'RanksController@editRankSubmit']);
+
+
+
+
+
