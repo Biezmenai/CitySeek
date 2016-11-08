@@ -209,6 +209,21 @@ Route::get('admin/ranks/edit/{id}', ['middleware' => 'admin', 'uses' => 'RanksCo
 Route::post('admin/ranks/edit/{id}/submit', ['middleware' => 'admin', 'uses' => 'RanksController@editRankSubmit']);
 
 
+/* Tasks routes */
+
+Route::get('admin/tasks', ['middleware' => 'admin', 'uses' => 'TaskController@tasksView']);
+
+Route::get('admin/tasks/event/{eventid}', ['middleware' => 'admin', 'uses' => 'TaskController@tasksViewOfEvent']);
+
+Route::get('admin/tasks/delete-task/{id}', ['middleware' => 'admin', 'uses' => 'TaskController@deleteTask']);
+
+Route::get('admin/tasks/edit-task/{id}', ['middleware' => 'admin', 'uses' => 'TaskController@editTaskView']);
+
+Route::post('admin/tasks/edit-task/{id}/submit', ['middleware' => 'admin', 'uses' => 'TaskController@editTaskSubmit']);
+
+Route::get('admin/tasks/event/{id}/add-task', ['middleware' => 'admin', 'uses' => 'TaskController@addTaskToEventView']);
+
+Route::post('/admin/tasks/event/{id}/add-task/submit', ['middleware' => 'admin', 'uses' => 'TaskController@addTaskToEventSubmit']);
 
 
 
