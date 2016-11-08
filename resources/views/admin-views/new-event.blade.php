@@ -12,11 +12,11 @@
             Aprašymas: <textarea class="w3-input" type="text" name="about" id="about"></textarea>
             Pradžios data: <input class="w3-input" type="datetime-local" name="start" id="start">
             Pabaigos data: <input class="w3-input" type="datetime-local" name="end" id="end">
-            Rūšis: <select name="eventType">
+            Rūšis: <select class="w3-select" name="eventType">
             <option value="team">Komandinis renginys</option>
             <option value="one">Renginys vienam asmeniui</option>
             </select><br>
-            <input class="w3-btn" type="submit" value="Pridėti" name="submit">
+            <input class="w3-btn  w3-margin-top" type="submit" value="Pridėti" name="submit">
         </form>
         <br>
     </div>
