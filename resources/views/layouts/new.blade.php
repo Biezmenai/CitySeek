@@ -72,6 +72,7 @@
     (function($) {
         var $window = $(window);
         if ($window.width() < 835) {
+            $('#middle-content .w3-container').removeClass('w3-margin').addClass('w3-margin-bottom');
             if ( window.location.pathname == '/' ||  window.location.pathname == '/home') {
                 if(document.URL.indexOf("?page") >= 0){
                     $('html, body').animate({
