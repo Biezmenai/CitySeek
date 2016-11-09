@@ -1,10 +1,15 @@
 <style>
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 834px) {
         #userName {
             display: none;
         }
         .w3-dropdown-content {
             margin: 0 0 0 -88px;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        #login-navbar {
+            display: none;
         }
     }
     @media screen and (max-width: 750px) {
@@ -44,7 +49,7 @@
                </div>
            </li>
         @else
-            <li class="w3-hide-small w3-right"><a href="/auth/facebook" class="w3-padding-large w3-hover-white"><i class="fa fa-sign-in w3-margin-right"></i><span class="w3-medium">Prisijunkite</span></a></li>
+            <li class="w3-hide-small w3-right"><a href="/auth/facebook" class="w3-padding-large w3-hover-white"><i class="fa fa-sign-in"></i><span id="login-navbar" class="w3-medium w3-margin-left">Prisijunkite</span></a></li>
         @endif
     </ul>
 </div>
