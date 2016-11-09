@@ -39,7 +39,7 @@
                        <a href="/admin"><i class="fa fa-cogs w3-margin-right"></i><span class="w3-medium">Admin</span></a>
                    @endif
                    <a href="#"><i class="fa fa-user w3-margin-right"></i><span class="w3-medium">Mano paskyra</span></a>
-                   <a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush w3-margin-right"></i><span class="w3-medium">Keisti spalvą</span></a>
+                   <a onmouseover="style='cursor: pointer'" onclick="document.getElementById('color-modal').style.display='block'"><i class="fa fa-paint-brush w3-margin-right"></i><span class="w3-medium">Keisti spalvą</span></a>
                    <a href="/logout"><i class="fa fa-sign-out w3-margin-right"></i><span class="w3-medium">Atsijungti</span></a>
                </div>
            </li>
@@ -57,7 +57,7 @@
                 <a href="/admin"><i class="fa fa-cogs w3-margin-right"></i><span class="w3-medium">Admin</span></a>
             @endif
         </li>
-        <li><a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush w3-margin-right"></i><span class="w3-medium">Keisti spalvą</span></a></li>
+        <li><a onclick="document.getElementById('color-modal').style.display='block'"><i class="fa fa-paint-brush w3-margin-right"></i><span class="w3-medium">Keisti spalvą</span></a></li>
         @if (Auth::user())
             <li><a href="#"><i class="fa fa-user w3-margin-right"></i><span class="w3-medium">Mano paskyra</span></a></li>
             <li><a href="/logout"><i class="fa fa-sign-out w3-margin-right"></i><span class="w3-medium">Atsijungti</span></a></li>
