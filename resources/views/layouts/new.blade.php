@@ -75,6 +75,7 @@
             $('html, body').animate({
                 scrollTop: $("#middle-content").offset().top-50
             }, 0);
+            $('#middle-content .w3-container').removeClass('w3-margin').addClass('w3-margin-bottom');
         }
     })(jQuery);
 </script>
