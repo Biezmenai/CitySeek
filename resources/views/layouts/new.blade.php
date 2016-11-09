@@ -68,14 +68,15 @@
             x.className = x.className.replace(" w3-show", "");
         }
     }
-    $(window).on("load", function(){
+
+    (function($) {
         var $window = $(window);
         if ($window.width() < 835) {
             $('html, body').animate({
                 scrollTop: $("#middle-content").offset().top-50
-            }, 700);
+            }, 0);
         }
-    });
+    })(jQuery);
 </script>
 
 </body>
