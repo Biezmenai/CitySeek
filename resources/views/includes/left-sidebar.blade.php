@@ -12,8 +12,7 @@
             <hr>
             <p class="w3-tooltip"><i class="fa fa-trophy fa-fw w3-margin-right w3-text-theme"></i>Rango taškai: <b>{{ Auth::user()->rank_score }}</b>
                 <span style="position:absolute;left:20px;top:30px" class="w3-text w3-tag w3-animate-opacity">
-                    Paprasta informacija apie rankingą:<br>
-                dasdasdasdasd
+                    Paprasta informacija apie rankingą:
                 </span>
             </p>
             <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
@@ -41,7 +40,7 @@
                     <p><img src="{{$team->image}}"></p>
                     <p>Dalyvauta varžybų: <b>0</b></p>
                     @if ($team->captain == Auth::user()->id)
-                        <p>Jūsų komandos slaptas kodas: <b>{{$team->secret}}</b></p>
+                        <p>Slaptas kodas: <b>{{$team->secret}}</b></p>
                     @endif
                     <hr>
                     <p><a href="/komanda/{{$team->id}}">Eiti į komandos puslapį</a></p>

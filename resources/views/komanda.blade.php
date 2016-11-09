@@ -26,7 +26,7 @@
             @if (Auth::user()->id == $team->captain)
                 <form action="/komanda/{{$team->id}}/keisti-logo" method="post" enctype="multipart/form-data">
                     <div class="image-upload w3-margin-bottom">
-                        <label title="Change picture" onmouseover="style='cursor:pointer'" for="img" class="w3-tooltip">
+                        <label onmouseover="style='cursor:pointer'" for="img" class="w3-tooltip">
                             <img src="{{$team->image}}"/>
                             <span style="position:absolute;left:120px;bottom:-30px" class="w3-text w3-tag w3-animate-opacity">
                             Nauja nuotrauka negali būti didesnė nei 10MB dydžio, bei 200x200px rezoliucijos
@@ -80,7 +80,7 @@
 
             @if (Auth::user()->id == $team->captain)
                 <div class="w3-center w3-margin">
-                    <label> Komandos slaptas kodas yra: </label>
+                    <label> Komandos slaptas kodas: </label>
                     <b>{{$team->secret}}</b>
                     <a onclick="return confirm('Ar tikrai pakeisti komandos kodą?')" href="/komanda/{{$team->id}}/keisti-koda"><i title="Generuoti naują kodą" class="fa fa-refresh fa-spin w3-margin-left" aria-hidden="true"></i></a>
                 </div>
