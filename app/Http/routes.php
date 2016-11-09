@@ -123,6 +123,8 @@ Route::post('join-team', ['middleware' => 'auth', 'uses' => 'TeamController@join
 
 Route::get('komanda/{id}', ['middleware' => ['auth', 'team'], 'uses' => 'TeamController@viewTeam']);
 
+Route::get('komanda', ['middleware' => 'auth', 'uses' => 'TeamController@viewTeamPage']);
+
 Route::get('/komanda/{id}/trinti-nari/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@deleteMember']);
 
 Route::get('/komanda/{id}/keisti-kapitona/{memberid}', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeCaptain']);
