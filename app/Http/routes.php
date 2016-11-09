@@ -133,6 +133,10 @@ Route::get('komanda/{id}/keisti-koda', ['middleware' => ['auth', 'team','captain
 
 Route::post('komanda/{id}/keisti-logo', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@changeLogo']);
 
+Route::get('/komanda/{id}/palikti-komanda', ['middleware' => ['auth', 'team'], 'uses' => 'TeamController@leaveTeam']);
+
+Route::get('komanda/{id}/istrinti-komanda', ['middleware' => ['auth', 'team','captain'], 'uses' => 'TeamController@deleteTeamForCaptain']);
+
 
 /* Event routes */
 Route::get('/renginiai', ['middleware' => 'admin', 'uses' => 'EventController@upcomingEventsListView']);
