@@ -1,11 +1,27 @@
+<style>
+    @media screen and (max-width: 850px) {
+        #userName {
+            display: none;
+        }
+        .w3-dropdown-content {
+            margin: 0 0 0 -88px;
+        }
+    }
+    @media screen and (max-width: 750px) {
+        .label {
+            display: none;
+        }
+    }
+</style>
+
 <div class="w3-top">
     <ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
         <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
             <a class="w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
         </li>
         <li><a href="/" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>CitySeek</a></li>
-        <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a></li>
-        <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a></li>
+        <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Jūsų komanda"><i class="fa fa-users"></i><span class="w3-medium w3-margin-left label">Komanda</span></a></li>
+        <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Renginiai"><i class="fa fa-calendar-check-o"></i><span class="w3-medium w3-margin-left label">Renginiai</span></a></li>
         <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a></li>
         <li class="w3-hide-small w3-dropdown-hover">
             <a href="#" class="w3-padding-large w3-hover-white" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></a>
@@ -17,17 +33,18 @@
         </li>
         @if (Auth::user())
            <li class="w3-hide-small w3-right w3-dropdown-hover">
-               <a href="#" class="w3-padding-large w3-hover-white" title="Mano paskyra"><img src="{{ Auth::user()->avatar }}" class="w3-circle" style="height:25px;width:25px" alt="Avatar"><span class="w3-medium"> {{ Auth::user()->name }}</span></a>
+               <a class="w3-padding-large w3-hover-white" title="Mano paskyra"><img src="{{ Auth::user()->avatar }}" class="w3-circle" style="height:25px;width:25px" alt="Avatar"><span id="userName" class="w3-medium w3-margin-left">{{ Auth::user()->name }}</span></a>
                <div class="w3-dropdown-content w3-white w3-card-4">
                    @if (Auth::user()->accesslevel > 0)
-                       <a href="/admin"><i class="fa fa-cogs"></i> Admin</a>
+                       <a href="/admin"><i class="fa fa-cogs w3-margin-right"></i><span class="w3-medium">Admin</span></a>
                    @endif
-                   <a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush"></i> Keisti spalvą</a>
-                   <a href="/logout"><i class="fa fa-sign-out"></i> Atsijungti</a>
+                   <a href="#"><i class="fa fa-user w3-margin-right"></i><span class="w3-medium">Mano paskyra</span></a>
+                   <a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush w3-margin-right"></i><span class="w3-medium">Keisti spalvą</span></a>
+                   <a href="/logout"><i class="fa fa-sign-out w3-margin-right"></i><span class="w3-medium">Atsijungti</span></a>
                </div>
            </li>
         @else
-            <li class="w3-hide-small w3-right"><a href="/auth/facebook" class="w3-padding-large w3-hover-white"><i class="fa fa-sign-in"></i> Prisijunkite</a></li>
+            <li class="w3-hide-small w3-right"><a href="/auth/facebook" class="w3-padding-large w3-hover-white"><i class="fa fa-sign-in w3-margin-right"></i><span class="w3-medium">Prisijunkite</span></a></li>
         @endif
     </ul>
 </div>
@@ -37,14 +54,15 @@
     <ul class="w3-navbar w3-left-align w3-large w3-theme">
         <li>
             @if (Auth::user() && Auth::user()->accesslevel > 0)
-                <a href="/admin"><i class="fa fa-cogs"></i> Admin</a>
+                <a href="/admin"><i class="fa fa-cogs w3-margin-right"></i><span class="w3-medium">Admin</span></a>
             @endif
         </li>
-        <li><a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush"></i> Keisti spalvą</a></li>
+        <li><a onclick="document.getElementById('color-modal').style.display='block'" href="#"><i class="fa fa-paint-brush w3-margin-right"></i><span class="w3-medium">Keisti spalvą</span></a></li>
         @if (Auth::user())
-            <li><a href="/logout"><i class="fa fa-sign-out"></i> Atsijungti</a></li>
+            <li><a href="#"><i class="fa fa-user w3-margin-right"></i><span class="w3-medium">Mano paskyra</span></a></li>
+            <li><a href="/logout"><i class="fa fa-sign-out w3-margin-right"></i><span class="w3-medium">Atsijungti</span></a></li>
         @else
-            <li><a class="w3-padding-large" href="/auth/facebook"><i class="fa fa-sign-in"></i> Prisijunkite</a></li>
+            <li><a href="/auth/facebook"><i class="fa fa-sign-in w3-margin-right"></i><span class="w3-medium">Prisijunkite</span></a></li>
         @endif
     </ul>
 </div>
