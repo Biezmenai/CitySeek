@@ -24,8 +24,7 @@ class TeamController extends Controller
             ]
         );
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             Session::flash('error-message', 'Klaida pildant duomenis');
             return redirect()->back();
         }
@@ -45,7 +44,7 @@ class TeamController extends Controller
             $team->captain = Auth::user()->id;
             $team->members_count = 1;
             $generatingSecretFailed = true;
-            while($generatingSecretFailed == true) {
+            while ($generatingSecretFailed == true) {
                 try {
                     $team->secret = str_random(10);
                     $team->save();
@@ -54,19 +53,16 @@ class TeamController extends Controller
                     $generatingSecretFailed = true;
                 }
             }
-            if (Input::hasFile('img'))
-            {
-                if (Input::file('img')->isValid())
-                {
+            if (Input::hasFile('img')) {
+                if (Input::file('img')->isValid()) {
                     Input::file('img')->move("uploads/team-logo", $team->id);
-                    $img = Image::make("uploads/team-logo/".$team->id);
+                    $img = Image::make("uploads/team-logo/" . $team->id);
                     $img->resize(106, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
-                    $img->save("uploads/team-logo/".$team->id);
-                    $team->image = "/uploads/team-logo/".$team->id;
-                }
-                else {
+                    $img->save("uploads/team-logo/" . $team->id);
+                    $team->image = "/uploads/team-logo/" . $team->id;
+                } else {
                     Session::flash('error-message', 'Klaida įkeliant nuotrauką');
                     return redirect()->back();
                 }
@@ -91,8 +87,7 @@ class TeamController extends Controller
         if (Auth::user()->team != 0) {
             Session::flash('error-message', "Jūs jau priklausote komandai");
             return redirect()->back();
-        }
-        else {
+        } else {
             if (!empty($team)) {
                 if ($team->members_count < 5) {
                     $user = User::find(Auth::user()->id);
@@ -107,8 +102,7 @@ class TeamController extends Controller
                     Session::flash('error-message', "Komandoje jau yra 5 nariai");
                     return redirect()->back();
                 }
-            }
-            else {
+            } else {
                 Session::flash('error-message', "Tokios komandos nėra");
                 return redirect()->back();
             }
@@ -118,14 +112,14 @@ class TeamController extends Controller
 
     public function viewTeam($id)
     {
-            $team = Team::with("members")->find($id);
-            return view('komanda', compact('team'));
+        $team = Team::with("members")->find($id);
+        return view('komanda', compact('team'));
     }
 
     public function viewTeamPage()
     {
         if (Auth::user()->team > 0) {
-            return redirect("/komanda/".Auth::user()->team);
+            return redirect("/komanda/" . Auth::user()->team);
         } else {
             return view('komanda');
         }
@@ -145,16 +139,10 @@ class TeamController extends Controller
         return view('admin-views/team-edit', compact('team'));
     }
 
-    public function editTeam()
-    {
-        /*$teams = Team::with('members')->get();
-
-        return view('admin-views/team-edit', compact('teams'));*/
-    }
 
     public function deleteTeam($id)
     {
-        $team= Team::with('members')->find($id);
+        $team = Team::with('members')->find($id);
 
         foreach ($team->members as $member) {
             $user = User::find($member->id);
@@ -168,12 +156,12 @@ class TeamController extends Controller
         return Redirect::back();
     }
 
-    public function deleteMember($id,$memberid)
+    public function deleteMember($id, $memberid)
     {
-        $user= User::find($memberid);
-        $team=Team::find($user->team);
+        $user = User::find($memberid);
+        $team = Team::find($user->team);
         $team->members_count--;
-        $user->team=0;
+        $user->team = 0;
 
 
         $team->save();
@@ -183,9 +171,9 @@ class TeamController extends Controller
         return Redirect::back();
     }
 
-    public function changeCaptain($id,$memberid)
+    public function changeCaptain($id, $memberid)
     {
-        $team=Team::find($id);
+        $team = Team::find($id);
         $team->captain = $memberid;
         $team->save();
 
@@ -193,11 +181,12 @@ class TeamController extends Controller
         return Redirect::back();
     }
 
-    public function changeSecret($id){
+    public function changeSecret($id)
+    {
 
-        $team=Team::find($id);
+        $team = Team::find($id);
         $generatingSecretFailed = true;
-        while($generatingSecretFailed == true) {
+        while ($generatingSecretFailed == true) {
             try {
                 $team->secret = str_random(10);
                 $team->save();
@@ -211,27 +200,27 @@ class TeamController extends Controller
     }
 
     public function removeMember($teamId, $memberId)
-     {
-         $team= Team::find($teamId);
-         if ($memberId == $team->captain) {
-             Session::flash('error-message', 'Kapitono negalima pašalinti');
-             return Redirect::back();
-         } else {
-                $user = User::find($memberId);
-                $user->team = 0;
-                $user->save();
+    {
+        $team = Team::find($teamId);
+        if ($memberId == $team->captain) {
+            Session::flash('error-message', 'Kapitono negalima pašalinti');
+            return Redirect::back();
+        } else {
+            $user = User::find($memberId);
+            $user->team = 0;
+            $user->save();
 
-                $team->members_count--;
-                $team->save();
+            $team->members_count--;
+            $team->save();
 
-                Session::flash('success-message', 'Vartotojas pašalintas iš komandos');
-                return Redirect::back();
-         }
+            Session::flash('success-message', 'Vartotojas pašalintas iš komandos');
+            return Redirect::back();
+        }
     }
 
     public function updateTeam($id)
     {
-        $team= Team::find($id);
+        $team = Team::find($id);
 
         try {
             $team->name = Input::get('name');
@@ -247,29 +236,25 @@ class TeamController extends Controller
             ]
         );
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             Session::flash('error-message', 'Įkelta ne nuotrauka');
             return redirect()->back();
         }
 
-        if (Input::hasFile('img'))
-        {
-                if (Input::file('img')->isValid())
-                {
-                    Input::file('img')->move("uploads/team-logo", $team->id);
-                    $img = Image::make("uploads/team-logo/".$team->id);
-                    $img->resize(106, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
-                    $img->save("uploads/team-logo/".$team->id);
-                    $team->image = "/uploads/team-logo/".$team->id;
-                    $team->save();
-                }
-                else {
-                    Session::flash('error-message', 'Klaida įkeliant nuotrauką');
-                    return redirect()->back();
-                }
+        if (Input::hasFile('img')) {
+            if (Input::file('img')->isValid()) {
+                Input::file('img')->move("uploads/team-logo", $team->id);
+                $img = Image::make("uploads/team-logo/" . $team->id);
+                $img->resize(106, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save("uploads/team-logo/" . $team->id);
+                $team->image = "/uploads/team-logo/" . $team->id;
+                $team->save();
+            } else {
+                Session::flash('error-message', 'Klaida įkeliant nuotrauką');
+                return redirect()->back();
+            }
         }
 
         Session::flash('success-message', 'Komandos informacija atnaujinta');
@@ -278,7 +263,7 @@ class TeamController extends Controller
 
     public function changeLogo($id)
     {
-        $team= Team::find($id);
+        $team = Team::find($id);
 
         $validator = Validator::make(Input::all(),
             [
@@ -286,26 +271,22 @@ class TeamController extends Controller
             ]
         );
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             Session::flash('error-message', 'Įkelta ne nuotrauka');
             return redirect()->back();
         }
 
-        if (Input::hasFile('img'))
-        {
-            if (Input::file('img')->isValid())
-            {
+        if (Input::hasFile('img')) {
+            if (Input::file('img')->isValid()) {
                 Input::file('img')->move("uploads/team-logo", $team->id);
-                $img = Image::make("uploads/team-logo/".$team->id);
+                $img = Image::make("uploads/team-logo/" . $team->id);
                 $img->resize(106, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
-                $img->save("uploads/team-logo/".$team->id);
-                $team->image = "/uploads/team-logo/".$team->id;
+                $img->save("uploads/team-logo/" . $team->id);
+                $team->image = "/uploads/team-logo/" . $team->id;
                 $team->save();
-            }
-            else {
+            } else {
                 Session::flash('error-message', 'Klaida įkeliant nuotrauką');
                 return redirect()->back();
             }
@@ -314,5 +295,43 @@ class TeamController extends Controller
         Session::flash('success-message', 'Logotipas atnaujintas');
         return Redirect::back();
     }
-}
 
+    public function leaveTeam($teamId)
+    {
+        $userID = Auth::user()->id;
+        $team = Team::find($teamId);
+        if ($userID == $team->captain) {
+            Session::flash('error-message', 'Kapitone, Jūs negalite palikti komandos, kol esate kapitonas.');
+            return Redirect::back();
+        } else {
+            $user = User::find($userID);
+            $user->team = 0;
+            $user->save();
+
+            $team->members_count--;
+            $team->save();
+
+            Session::flash('success-message', 'Jūs palikote komandą');
+            return Redirect::home();
+        }
+    }
+
+    public function deleteTeamForCaptain($id)
+    {
+        $userID = Auth::user()->id;
+        $team = Team::find($id);
+
+        if ($userID == $team->captain) {
+            foreach ($team->members as $member) {
+                $user = User::find($member->id);
+                $user->team = 0;
+                $user->save();
+            }
+
+            $team->delete();
+        }
+        Session::flash('success-message', 'Komanda ištrinta');
+        return Redirect::home();
+    }
+
+}

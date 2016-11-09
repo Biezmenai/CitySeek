@@ -96,6 +96,15 @@
             @endif
 
             @endif
+            <div class="w3-center w3-margin">
+               <label> Palikti komandą <a onclick="return confirm('Ar tikrai norite palikti komandą?')" href="/komanda/{{$team->id}}/palikti-komanda"><i title="Palikti komandą"  class="fa fa-sign-out" aria-hidden="true"></i></a></label>
+            </div>
+
+            <div class="w3-center w3-margin">
+                @if (Auth::user()->id == $team->captain)
+                    <label> Ištrinti komandą <a onclick="return confirm('Ar tikrai norite ištrinti komandą?')" href="/komanda/{{$team->id}}/istrinti-komanda"><i title="Ištrinti komandą"  class="fa fa-trash-o" aria-hidden="true"></i></a></label>
+                @endif
+            </div>
         </div>
 
 @stop
