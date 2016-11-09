@@ -4,6 +4,7 @@
 @section('title', 'Komanda')
 
 @section('content')
+
     <style>
         .image-upload > input
         {
@@ -22,6 +23,14 @@
         <h3>Komandos puslapis</h3>
     </div>
         <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+            @if (Auth::user()->team == 0)
+                <div class="w3-center">
+                    <p>Jūs neturite komandos!</p>
+                    <p>Norint dalyvauti komandinėse rungtyse, reikia turėti komandą:</p>
+                    <p><button onclick="document.getElementById('create-team').style.display='block'" class="w3-btn w3-hover-white">Kurti naują komandą</button></p>
+                    <p><button onclick="document.getElementById('join-team').style.display='block'" class="w3-btn w3-hover-white">Prisijungti prie komandos</button></p>
+                </div>
+            @else
             <h4>{{$team->name}}</h4>
             @if (Auth::user()->id == $team->captain)
                 <form action="/komanda/{{$team->id}}/keisti-logo" method="post" enctype="multipart/form-data">
@@ -84,6 +93,8 @@
                     <b>{{$team->secret}}</b>
                     <a onclick="return confirm('Ar tikrai pakeisti komandos kodą?')" href="/komanda/{{$team->id}}/keisti-koda"><i title="Generuoti naują kodą" class="fa fa-refresh fa-spin w3-margin-left" aria-hidden="true"></i></a>
                 </div>
+            @endif
+
             @endif
         </div>
 

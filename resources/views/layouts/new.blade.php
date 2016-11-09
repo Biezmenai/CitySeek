@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
 @include('includes.head')
+<script src="/assets/js/jquery.js"></script>
 <body class="w3-theme-l4">
 @include('includes.navigation')
 <!-- Page Container -->
@@ -19,7 +20,7 @@
     <div class="w3-row">
     @include($LEFT_SIDEBAR)
         <!-- Middle Column -->
-        <div class="w3-col m7">
+        <div id="middle-content" class="w3-col m7">
             <!-- Pranesimai -->
             @if (Session::has('success-message'))
                 <div class="w3-panel w3-green w3-margin">
@@ -67,17 +68,14 @@
             x.className = x.className.replace(" w3-show", "");
         }
     }
-</script>
 
-<script src="{!!asset('/assets/summernote/summernote.css')!!}"></script>
-
-<script src="{!!asset('/assets/summernote/summernote.min.js')!!}"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            height:300,
-        });
+    $( document ).ready(function() {
+        var $window = $(window);
+        if ($window.width() < 835) {
+            $('html, body').animate({
+                scrollTop: $("#middle-content").offset().top-50
+            }, 500);
+        }
     });
 </script>
 

@@ -118,10 +118,17 @@ class TeamController extends Controller
 
     public function viewTeam($id)
     {
-        $team = Team::with("members")->find($id);
+            $team = Team::with("members")->find($id);
+            return view('komanda', compact('team'));
+    }
 
-        return view('komanda', compact('team'));
-
+    public function viewTeamPage()
+    {
+        if (Auth::user()->team > 0) {
+            return redirect("/komanda/".Auth::user()->team);
+        } else {
+            return view('komanda');
+        }
     }
 
     public function viewTeamList()

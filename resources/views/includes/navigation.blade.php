@@ -20,8 +20,8 @@
             <a class="w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
         </li>
         <li><a href="/" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>CitySeek</a></li>
-        <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Jūsų komanda"><i class="fa fa-users"></i><span class="w3-medium w3-margin-left label">Komanda</span></a></li>
-        <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Renginiai"><i class="fa fa-calendar-check-o"></i><span class="w3-medium w3-margin-left label">Renginiai</span></a></li>
+        <li class="w3-hide-small"><a href="/komanda" class="w3-padding-large w3-hover-white" title="Jūsų komanda"><i class="fa fa-users"></i><span class="w3-medium w3-margin-left label">Komanda</span></a></li>
+        <li class="w3-hide-small"><a href="/renginiai" class="w3-padding-large w3-hover-white" title="Renginiai"><i class="fa fa-calendar-check-o"></i><span class="w3-medium w3-margin-left label">Renginiai</span></a></li>
         <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a></li>
         <li class="w3-hide-small w3-dropdown-hover">
             <a href="#" class="w3-padding-large w3-hover-white" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></a>
