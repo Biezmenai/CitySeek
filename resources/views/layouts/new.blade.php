@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 @include('includes.head')
-<script src="/assets/js/jquery.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <body class="w3-theme-l4">
 @include('includes.navigation')
 <!-- Page Container -->
@@ -69,14 +69,14 @@
         }
     }
 
-    $( document ).ready(function() {
+    (function($) {
         var $window = $(window);
         if ($window.width() < 835) {
             $('html, body').animate({
                 scrollTop: $("#middle-content").offset().top-50
-            }, 500);
+            }, 1000);
         }
-    });
+    })(jQuery);
 </script>
 
 </body>
