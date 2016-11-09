@@ -78,6 +78,14 @@
             $('#middle-content .w3-container').removeClass('w3-margin').addClass('w3-margin-bottom');
         }
     })(jQuery);
+
+    $(window).resize(function(){
+        if ($(window).width() < 817) {
+            $('#middle-content .w3-container').removeClass('w3-margin').addClass('w3-margin-bottom');
+        } else {
+            $('#middle-content .w3-container').removeClass('w3-margin-bottom').addClass('w3-margin');
+        }
+    });
 </script>
 
 </body>
