@@ -11,18 +11,15 @@
         <hr class="w3-clear">
         @foreach ($events as $key=>$event)
             <div class="w3-row">
-                <div class="w3-col m6">
-                    <div class="w3-card-2 w3-margin-right w3-margin-bottom">
+                    <div class="w3-card-2 w3-margin-bottom">
                         <header class="w3-container w3-theme-l5">
                             <h6>{{$event->title}}<span class="w3-right"><i class="fa fa-square-o" aria-hidden="true"></i></span></h6>
                         </header>
-                        <img src="img_fjords.jpg" alt="Norway">
                         <div class="w3-container w3-center">
                             <p>The Troll's tongue in Hardanger, Norway</p>
                         </div>
                     </div>
                 </div>
-            </div>
         @endforeach
 
 
