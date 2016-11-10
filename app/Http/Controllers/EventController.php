@@ -89,11 +89,15 @@ class EventController extends Controller
     {
         $events = Event::with('user')->get();
         $team = Team::where('id', '=', Auth::user()->team)->first();
+
         foreach($events as $key=>$event) {
-            $ifRegistered[$key]= Registration::where("user_id", "=", Auth::user()->id)->where("event_id", "=", $event["id"])->count();
-            $ifRegisteredTeam[$key]= Registration::where("team_id", "=", $team->id)->where("event_id", "=", $event["id"])->count();
+            $ifRegistered[$key] = Registration::where("user_id", "=", Auth::user()->id)->where("event_id", "=", $event["id"])->count();
+
+                $ifRegisteredTeam[$key] = Registration::where("team_id", "=", $team['id'])->where("event_id", "=", $event["id"])->count();
+
+
         }
-            return view('events', compact('events', 'team', 'ifRegistered', 'ifRegisteredTeam'));
+            return view('events', compact('events', 'team', 'ifRegistered', ('ifRegisteredTeam')));
 
 
     }

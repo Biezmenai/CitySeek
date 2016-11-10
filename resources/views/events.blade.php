@@ -15,61 +15,44 @@
                         <header class="w3-container w3-theme-l5">
                             <h6>{{$event->title}}<span class="w3-right"><i class="fa fa-square-o" aria-hidden="true"></i></span></h6>
                         </header>
+                        <div class="w3-container w3-left">
+                            @if( $event->eventType == "one")
+
+                                <p>Tipas:<b> Renginys asmeniui</b></p>
+                            @else
+                                <p>Tipas:<b> Komandinis renginys</b></p>
+                                @endif
+                                @if($event->eventType=="one")
+                                    @if($ifRegistered[$key] == 0)
+                                        <p><a href="renginiai/registracija/{{$event->id}}">Registruotis</a></p>
+                                    @else
+                                        <p>Jūs jau prisiregistravę</p>
+                                    @endif
+
+                                @elseif(Auth::user()->team > 0)
+                                    @if($ifRegisteredTeam[$key] == 0)
+                                        <p><a href="renginiai/komandos-registracija/{{Auth::user()->team}}/{{$event->id}}">Registruoti komandą</a></p>
+                                    @else
+                                        <p>Komanda jau priregistruota</p>
+                                    @endif
+                                @else
+                                    <p>Neturite komandos</p>
+                                @endif
+                                @if($ifRegisteredTeam[$key] != 0)
+                                    <p><a onclick="return confirm('Ar tikrai norite palikti komandinį renginį?')" href="renginiai/issiregistravimas/{{Auth::user()->team}}/{{$event->id}}"><font color="red">Palikti komandinį renginį</font></a></p>
+                                @endif
+                                @if($ifRegistered[$key] != 0)
+
+                                    <p><a onclick="return confirm('Ar tikrai norite palikti renginį?')" href="renginiai/issiregistravimas/{{$event->id}}"><font color="red">Palikti renginį</font></a></p>
+                                @endif
+                        </div>
                         <div class="w3-container w3-center">
-                            <p>The Troll's tongue in Hardanger, Norway</p>
+                           <p>Renginio pradžia    : <b><i>{{$event->start}}</i></b></p>
+                            <p>Renginio pabaiga   : <b><i>{{$event->end}}</i></b></p>
                         </div>
                     </div>
                 </div>
         @endforeach
-
-
-
-
-        <table class="w3-table w3-striped">
-            <tr>
-                <th>Pavadinimas</th>
-                <th>Tipas</th>
-                <th>Pradžios data</th>
-                <th>Pabaigos data</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            @foreach ($events as $key=>$event)
-                <tr>
-                    <td>{{$event->title}}</td>
-                    @if( $event->eventType == "one")
-                    <td>Renginys asmeniui</td>
-                    @else
-                        <td>Komandinis renginys</td>
-                    @endif
-                    <td>{{$event->start}}</td>
-                    <td>{{$event->end}}</td>
-                    @if($event->eventType=="one")
-                        @if($ifRegistered[$key] == 0)
-                            <td><a href="renginiai/registracija/{{$event->id}}">Registruotis</a></td>
-                            @else
-                            <td>Jūs jau prisiregistravę</td>
-                            @endif
-
-                    @elseif(Auth::user()->team > 0)
-                        @if($ifRegisteredTeam[$key] == 0)
-                            <td><a href="renginiai/komandos-registracija/{{Auth::user()->team}}/{{$event->id}}">Registruoti komandą</a></td>
-                            @else
-                            <td>Komanda jau priregistruota</td>
-                        @endif
-                           @else
-                        <td>Nesate komandoje</td>
-                            @endif
-                    @if($ifRegisteredTeam[$key] != 0)
-                        <td><a href="renginiai/issiregistravimas/{{Auth::user()->team}}/{{$event->id}}">išregistruoti komandą</a></td>
-                        @endif
-                    @if($ifRegistered[$key] != 0)
-                        <td><a href="renginiai/issiregistravimas/{{$event->id}}">išsiregistruoti</a></td>
-                        @endif
-                </tr>
-            @endforeach
-            </table>
     </div>
 
 @stop
